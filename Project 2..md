@@ -1,4 +1,3 @@
-
 # Project 2: LEMP STACK Implementation
 LEMP STACK is a bundle of technologies used for web development. The combination of these technologies create web solutions
 
@@ -34,6 +33,7 @@ After the web server has been installed and running, I installed a database mana
  * To test if I am able to log in into mysql console: 'sudo mysql -p'
 
 ## STEP 4:Installing PHP
+
 PHP is used to process code and generate dynamic content for the wen server.PHP-MySQL, a PHP module that helps PHP to communicate with mySQL will be installed.
 * SIDENOTE: Unlike apache that embeds PHP interpreter in each requets, Nginx requires an external program to handle PHP processing and act as a bridge between the PHP interpreter itself and the web server.Thus, requiring additional configuration.PHP-FPM (“PHP fastCGI process manager”) will be installed for this purpose.
 * PHP-FPM will be installed along side PHP-MYSQL (PHP module that allows PHP to communicate with MySQL-based databases)
@@ -66,14 +66,14 @@ server {
     location ~ /\.ht {
         deny all;
     }
-
-}'
+    
 * Activating the configuration by linking to the config file from Nginx’s sites-enabled directory: 'sudo ln -s /etc/nginx/sites-available/projectLEMP /etc/nginx/sites-enabled/'
 * Teat configuration for syntax by typing: 'sudo nginx -t'
 * Disabling default Nginx host that is currently configured to listen on port 80: 'sudo unlink /etc/nginx/sites-enabled/default'
 * Reload Nginx to apply changes: 'sudo systemctl reload nginx'
 * Create an index.html file in that location so that we can test that your new server block works as expected:'sudo echo 'Hello LEMP from hostname' $(curl -s http://169.254.169.254/latest/meta-data/public-hostname) 'with public IP' $(curl -s http://169.254.169.254/latest/meta-data/public-ipv4) > /var/www/projectLEMP/index.html'
 Testing the website URL using my IP address: http://<Public-IP-Address>:80
+
 ## STEP 6:Testing PHP with Nginx
 Test LEMP stack to  validate that Nginx can correctly hand .php files off to your PHP processor.
 * It can be done by creating a test PHP file in your document root. Open a new file called info.php within your document root in your text editor: 'sudo nano /var/www/projectLEMP/info.php'

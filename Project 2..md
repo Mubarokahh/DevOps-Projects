@@ -81,5 +81,3 @@ Test LEMP stack to  validate that Nginx can correctly hand .php files off to you
 '<?php
 phpinfo();'
 * The page can be acess in the web browser through: 'http://Public_IP_address/info.php'
-
-

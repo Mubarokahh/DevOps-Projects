@@ -84,7 +84,7 @@ phpinfo();'
   
   ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/269ec5d0-5eb3-4f50-aa23-7929ba9f5420)
 
-  ## Retrieving data from MySQL database with PHP
+  ## STEP 7: Retrieving data from MySQL database with PHP
   A test database (DB) with simple “To do list” and configure access to it will be craeted, so the Nginx website would be able to query data from the DB and display it.
 Creating a database named example_database and a user named example_user, but these names can be replaced with different values
 * Connecting to MySQL console:  `sudo mysql`
@@ -93,5 +93,37 @@ Creating a database named example_database and a user named example_user, but th
 * Exit MySQL console: mysql> exit
 * Testing if the new user has the proper permissions by logging in to the MySQL console again using the custom user credentials: `$ mysql -u example_user -p`
 * To check the database created: `mysql> SHOW DATABASES;`
-*
+
+![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/69f816cb-fdc6-4314-b7a8-725c411adfb1)
+
+* Creating a test table named todo_list: 
+`CREATE TABLE example_database.todo_list (item_id INT AUTO_INCREMENT,content VARCHAR(255),PRIMARY KEY(item_id));`
+* Insert a few rows of content in the test table: `mysql> INSERT INTO example_database.todo_list (content) VALUES ("My first important item");`
+* To confirm that the data was successfully created:` mysql>  SELECT * FROM example_database.todo_list;`
+* Exit the MySQL:` mysql> exit`
+
+   Creating a PHP script that will connect to MySQL and query for your content.
+  * Create a new PHP file in your custom web root directory using your preferred editor: `nano /var/www/projectLEMP/todo_list.php`
+  * The folloeing content will be added into the todo_list.php script:
+   ` <?php
+$user = "example_user";
+$password = "password";
+$database = "example_database";
+$table = "todo_list";
+
+try {
+  $db = new PDO("mysql:host=localhost;dbname=$database", $user, $password);
+  echo "<h2>TODO</h2><ol>";
+  foreach($db->query("SELECT content FROM $table") as $row) {
+    echo "<li>" . $row['content'] . "</li>";
+  }
+  echo "</ol>";
+} catch (PDOException $e) {
+    print "Error!: " . $e->getMessage() . "<br/>";
+    die();
+}`
+* To access this page in any web browser, I used my public IP address followed by /todo_list.php `http://<Public_domain_or_IP>/todo_list.php`
+* ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/83aad96c-f1de-4ff1-9b15-deabe8666551)
+
+
 

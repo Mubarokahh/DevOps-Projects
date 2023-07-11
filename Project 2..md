@@ -81,3 +81,17 @@ Test LEMP stack to  validate that Nginx can correctly hand .php files off to you
 '<?php
 phpinfo();'
 * The page can be acess in the web browser through: 'http://Public_IP_address/info.php'
+  
+  ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/269ec5d0-5eb3-4f50-aa23-7929ba9f5420)
+
+  ## Retrieving data from MySQL database with PHP
+  A test database (DB) with simple “To do list” and configure access to it will be craeted, so the Nginx website would be able to query data from the DB and display it.
+Creating a database named example_database and a user named example_user, but these names can be replaced with different values
+* Connecting to MySQL console:  `sudo mysql`
+* Creating a new database: `mysql> CREATE DATABASE example_database;`
+* Creating a new user and granting him full privileges on the database using mysql_native_password as default authentication method: `mysql>  CREATE USER 'example_user'@'%' IDENTIFIED WITH mysql_native_password BY 'password'; mysql> GRANT ALL ON example_database.* TO 'example_user'@'%';`
+* Exit MySQL console: mysql> exit
+* Testing if the new user has the proper permissions by logging in to the MySQL console again using the custom user credentials: `$ mysql -u example_user -p`
+* To check the database created: `mysql> SHOW DATABASES;`
+*
+

@@ -5,20 +5,32 @@ LEMP STACK is a bundle of technologies used for web development. The combination
 
 * I launched an EC2 instance through AWS.I then launched the SSH commands on my Mac terminal and connected to the server I was operating in the AWS cloud.
 
-! (image.png)
+![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/64b118b6-1ee5-4fe1-84d5-1c5f3f0b48e8)
 
 ## STEP 2:Instaliing The Nginx Web Server
-
 For this project,Nginx will be used to show web pages to the site's visitors.Apt package manager was used to install this package. 
-* The following commands will be run to install Nginx.(1) 'sudo apt update' (2) 'sudo apt install nginx' . 
+
+* The following commands will be run to install Nginx.
+* (1) `sudo apt update`
+*  (2)`sudo apt install nginx`
+* 
+![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/425b948f-a198-442d-8b8a-68bdf465d603)
+
 * To verify if Nginx is running sucessfully in the virtual machine. The following syntax was run:'Sudo systemtcl status Nginx'
-image.png 
+
+  ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/3ba291d1-48d7-45a8-88ee-696e5f91f63d)
+
 The server running in EC2 was configured to receive traffic by the web server.Thus, the EC2 was configured to open inbound connection through Port 80
-image.png
+
+![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/b9719b58-c2fd-4a26-af20-2740dc6ca0f8)
 
 * To acess the server loacally from my mac termical: 'curl http://localhost:80'
-image.png
+
+![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/1db00187-44bf-4df4-9dc7-0aab5df79589)
+
 * To check if the high performance web server (Nginx) can reponse to request on the internet.I insert my public IP address into a web brower: 'http://<Public-IP-Address>:80'
+
+  ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/894214b7-df31-41fe-9b10-1e0d519e2db4)
 
 The image display above shows that Nginx server is correectly installed.
 
@@ -123,7 +135,7 @@ try {
     die();
 }`
 * To access this page in any web browser, I used my public IP address followed by /todo_list.php `http://<Public_domain_or_IP>/todo_list.php`
-* ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/83aad96c-f1de-4ff1-9b15-deabe8666551)
+ ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/83aad96c-f1de-4ff1-9b15-deabe8666551)
 
 
 

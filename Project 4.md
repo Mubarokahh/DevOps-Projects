@@ -7,39 +7,48 @@ This technology stack consists of:
 * NodeJS {A javascript run time environment}
 
 ## Step 1: Setting up a virtual environment in AWS Cloud
-I set up an EC2 instance in AWS.I then open my mac terminal and ran the SSH comands in order to connect to the server I have running in AWS cloud using my private key.Upon connecting to the virtual environment, i configured the virtual server (Ubuntu) that is now running on my mac terminal using the following commands:
-1. sudo apt update
-2. suso apt upgrade
+I set up an EC2 instance in AWS. I then open my mac terminal and ran the SSH comands in order to connect to the server I have running in AWS cloud using my private key.Upon connecting to the virtual environment, i configured the virtual server (Ubuntu) that is now running on my mac terminal using the following commands:
+1. `sudo apt update`
+2. `suso apt upgrade`
+
+    ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/ec6bfcd8-1538-4276-aa58-eb3bd4e5e22f)
 
 ## Step 2: Installing NodeJS on the Server
  To install NodeJS,add the certificates below:
- sudo apt -y install curl dirmngr apt-transport-https lsb-release ca-certificates
+` sudo apt -y install curl dirmngr apt-transport-https lsb-release ca-certificates
+`
+`curl -sL https://deb.nodesource.com/setup_18.x | sudo -E bash -`
 
-curl -sL https://deb.nodesource.com/setup_18.x | sudo -E bash - 
-
- Run this command afterwards: sudo apt install -y nodejs
+ Run this command afterwards:` sudo apt install -y nodejs`
+ 
   This command installs both NodeJS and NPM (Node Package Manager)
 
  ## Step 3: Installing Mongodb
- * Import the public key used by the package management syatem by running: sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 0C49F3730359A14518585931BC711F9BA15703C6
- * Creating the list file for this version of ubuntu: echo "deb [ arch=amd64 ] https://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.4 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.4.list
+ * Import the public key used by the package management syatem by running:` sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 0C49F3730359A14518585931BC711F9BA15703C6`
+ * Creating the list file for this version of ubuntu: `echo "deb [ arch=amd64 ] https://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.4 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.4.list`
 
- * Install MongoDB: sudo apt install -mongodb
- * Starting the server: sudo systemctl start mongod
- * Verifying if the server is running successfully: sudo systemctl status mongod
+ * Install MongoDB: `sudo apt install -mongodb`
+ * Starting the server: `sudo systemctl start mongod`
 
- ![image.png]
+   ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/ec6bfcd8-1538-4276-aa58-eb3bd4e5e22f)
+   
+ * Verifying if the server is running successfully: `sudo systemctl status mongod`
 
- * install npm-Node package manager: sudo apt install -y npm
+   ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/51158232-1115-4687-b29b-5bdd7f52c558)
+
+ * install npm-Node package manager: `sudo apt install -y npm`
 
  ## Step 4: Instll Body-parser Package
-  * To install this package: sudo npm install body-parser
-
-  * Create a folder named Books: mkdir Books && cd Books
-  * Initialize npm project in the book directory: npm init
+  * To install this package: `sudo npm install body-parser`
+  * Create a folder named Books:` mkdir Books && cd Books`
+  * Initialize npm project in the book directory: `npm init`
   * Creating a file in the books directory  named server.js and opening it with : vi server
+
+    ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/bb752504-4613-4921-894f-f5d2a9a8d19f)
+
   * Paste the web server code below into the file and save:
-  var express = require('express');
+    
+`  var express = require('express');
 var bodyParser = require('body-parser');
 var app = express();
 app.use(express.static(__dirname + '/public'));
@@ -49,13 +58,18 @@ app.set('port', 3300);
 app.listen(app.get('port'), function() {
     console.log('Server up: http://localhost:' + app.get('port'));
 });
-
+`
 ## STEP 5: Installing Express and setting up routes to the server
-* Installing express and mongoose to establish a schema for the database to store data of our book register: $ sudo npm install express mongoose
-* Creating a folder named apps in book directory: mkdir apps & cd apps
-* create a file in the apps directory named routes.js: touch routes.js
+* Installing express and mongoose to establish a schema for the database to store data of our book register:  `sudo npm install express mongoose`
+* Creating a folder named apps in book directory: `mkdir apps & cd apps`
+* create a file in the apps directory named routes.js: `touch routes.js`
+
+![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/54016e45-c736-4c79-8b3e-5400fef7c194)
+
+ 
 * open the file and paste the following code:
-const Book = require('./models/book');
+  
+'const Book = require('./models/book');
 
 module.exports = function(app) {
   app.get('/book', function(req, res) {
@@ -102,10 +116,15 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
   });
 };
+
   * Create a folder in apps named models and enter the directory: mkdir models && cd models
   * create a file in the models folder named book.js
-  * open the book.js with file editor :vi book.js and paste the code below,
-  var mongoose = require('mongoose');
+  * open the book.js with file editor :vi book.js and paste the code below:
+
+    ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/4fc97fd5-d240-4494-8d9b-7559f623a999)
+
+    
+`  var mongoose = require('mongoose');
 var dbHost = 'mongodb://localhost:27017/test';
 mongoose.connect(dbHost);
 mongoose.connection;
@@ -117,110 +136,128 @@ var bookSchema = mongoose.Schema( {
   pages: Number
 });
 var Book = mongoose.model('Book', bookSchema);
-module.exports = mongoose.model('Book', bookSchema);
+module.exports = mongoose.model('Book', bookSchema);`
 
 ## STEP 6; Accessing the Routes With AngularJS
-* Chnage directory back to books 
-* create a folder named public and enter that directory: mkdir public && cd public
-* create a file named script.js and open with file editor: vi script.js
+* Change directory back to books 
+* create a folder named public and enter that directory: `mkdir public && cd public`
+* create a file named script.js and open with file editor:` vi script.js`
 * paste the following code in the file:
-Copy and paste the Code below (controller configuration defined) into the script.js file.
 
-var app = angular.module('myApp', []);
-app.controller('myCtrl', function($scope, $http) {
-  $http( {
-    method: 'GET',
-    url: '/book'
-  }).then(function successCallback(response) {
-    $scope.books = response.data;
-  }, function errorCallback(response) {
-    console.log('Error: ' + response);
-  });
-  $scope.del_book = function(book) {
-    $http( {
-      method: 'DELETE',
-      url: '/book/:isbn',
-      params: {'isbn': book.isbn}
-    }).then(function successCallback(response) {
-      console.log(response);
-    }, function errorCallback(response) {
-      console.log('Error: ' + response);
-    });
-  };
-  $scope.add_book = function() {
-    var body = '{ "name": "' + $scope.Name + 
-    '", "isbn": "' + $scope.Isbn +
-    '", "author": "' + $scope.Author + 
-    '", "pages": "' + $scope.Pages + '" }';
-    $http({
-      method: 'POST',
-      url: '/book',
-      data: body
-    }).then(function successCallback(response) {
-      console.log(response);
-    }, function errorCallback(response) {
-      console.log('Error: ' + response);
-    });
-  };
-});
+  ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/f61ce932-5e39-4ac1-9c0f-e836797b0ded)
+
+
+	`var app = angular.module('myApp', []);
+	app.controller('myCtrl', function($scope, $http) {
+	  $http( {
+	    method: 'GET',
+	    url: '/book'
+	  }).then(function successCallback(response) {
+	    $scope.books = response.data;
+	  }, function errorCallback(response) {
+	    console.log('Error: ' + response);
+	  });
+	  $scope.del_book = function(book) {
+	    $http( {
+	      method: 'DELETE',
+	      url: '/book/:isbn',
+	      params: {'isbn': book.isbn}
+	    }).then(function successCallback(response) {
+	      console.log(response);
+	    }, function errorCallback(response) {
+	      console.log('Error: ' + response);
+	    });
+	  };
+	  $scope.add_book = function() {
+	    var body = '{ "name": "' + $scope.Name + 
+	    '", "isbn": "' + $scope.Isbn +
+	    '", "author": "' + $scope.Author + 
+	    '", "pages": "' + $scope.Pages + '" }';
+	    $http({
+	      method: 'POST',
+	      url: '/book',
+	      data: body
+	    }).then(function successCallback(response) {
+	      console.log(response);
+	    }, function errorCallback(response) {
+	      console.log('Error: ' + response);
+	    });
+	  };
+	});
+`
  * Create a file named "index.html" in the public folder and open with file editor: vi index.html
+
+![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/86de6c56-4ca3-40f2-9d8a-ac6ee10e581f)
+
  * Paste the following code and save: 
- <!doctype html>
-<html ng-app="myApp" ng-controller="myCtrl">
-  <head>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-    <script src="script.js"></script>
-  </head>
-  <body>
-    <div>
-      <table>
-        <tr>
-          <td>Name:</td>
-          <td><input type="text" ng-model="Name"></td>
-        </tr>
-        <tr>
-          <td>Isbn:</td>
-          <td><input type="text" ng-model="Isbn"></td>
-        </tr>
-        <tr>
-          <td>Author:</td>
-          <td><input type="text" ng-model="Author"></td>
-        </tr>
-        <tr>
-          <td>Pages:</td>
-          <td><input type="number" ng-model="Pages"></td>
-        </tr>
-      </table>
-      <button ng-click="add_book()">Add</button>
-    </div>
-    <hr>
-    <div>
-      <table>
-        <tr>
-          <th>Name</th>
-          <th>Isbn</th>
-          <th>Author</th>
-          <th>Pages</th>
 
-        </tr>
-        <tr ng-repeat="book in books">
-          <td>{{book.name}}</td>
-          <td>{{book.isbn}}</td>
-          <td>{{book.author}}</td>
-          <td>{{book.pages}}</td>
+`<!doctype html>
 
-          <td><input type="button" value="Delete" data-ng-click="del_book(book)"></td>
-        </tr>
-      </table>
-    </div>
-  </body>
-</html>
+	<html ng-app="myApp" ng-controller="myCtrl">
+	  <head>
+	    <script src=" https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js "></script>
+     
+	    <script src="script.js"></script>
+     
+	  </head>
+	  <body>
+	    <div>
+	      <table>
+	        <tr>
+	          <td>Name:</td>
+	          <td><input type="text" ng-model="Name"></td>
+	        </tr>
+	        <tr>
+	          <td>Isbn:</td>
+	          <td><input type="text" ng-model="Isbn"></td>
+	        </tr>
+	        <tr>
+	          <td>Author:</td>
+	          <td><input type="text" ng-model="Author"></td>
+	        </tr>
+	        <tr>
+	          <td>Pages:</td>
+	          <td><input type="number" ng-model="Pages"></td>
+	        </tr>
+	      </table>
+	      <button ng-click="add_book()">Add</button>
+	    </div>
+	    <hr>
+	    <div>
+	      <table>
+	        <tr>
+	          <th>Name</th>
+	          <th>Isbn</th>
+	          <th>Author</th>
+	          <th>Pages</th>
+	
+	        </tr>
+	        <tr ng-repeat="book in books">
+	          <td>{{book.name}}</td>
+	          <td>{{book.isbn}}</td>
+	          <td>{{book.author}}</td>
+	          <td>{{book.pages}}</td>
+	
+	          <td><input type="button" value="Delete" data-ng-click="del_book(book)"></td>
+	        </tr>
+	      </table>
+	    </div>
+	  </body>
+	</html>`
+* Run the following command to start the server : `node server.js`
 
-* Run the following command to start the server : node server.js
+  ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/88508681-d292-4b6f-acaa-376f256425ca)
+
 
 ## Step 7: Updating the EC2 Instance Security Group
  * Configuring the security group of the EC2 instance to be able to listen to port 3300
+   
+![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/92a6fd0f-a085-4097-b5e3-1650e6f1fe00)
+
 
 ## Last Step
 * Opening up my browser and entering my public address with the port number 3300 to access the Book register application:
+
+  ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/4447794a-213a-4723-964a-f25e62be98f5)
+
 

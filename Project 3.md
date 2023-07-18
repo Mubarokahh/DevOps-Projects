@@ -3,38 +3,45 @@ This project aims to implement web solution based on MERN technology stack in th
 
 ## Step 1: Setting up a virtual environment in AWS Cloud
 I set up an EC2 instance in AWS.I then open my mac terminal and ran the SSH comands in order to connect to the server I have running in AWS cloud using my private key.Upon connecting to the virtual environment, i configured the virtual server (Ubuntu) that is now running on my mac terminal using the following commands:
-1. sudo apt update
-2. suso apt upgrade
+1. `sudo apt update`
+2. `suso apt upgrade`
 
-  [image.png]
+![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/6a80e081-f961-4f33-b84b-d8bb501b0b24)
 
   To unveil the location of NodeJS SOFTWARE FROM Ubuntu repositories
-  curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
+ ` curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -`
 
   ## Step 2: Installing NodeJS on the Server
   
-  * To install NodeJS, run: 
+  * To install NodeJS, run: `sudo apt install -y nodejs`
+ 
   This command installs both NodeJS and NPM (Node Package Manager)
 
-  [image.png]
+  ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/d5e54d63-89a9-41b2-a2da-bc9811a3aba6)
+
 
   ## STEP 3:Application Code Setup
-  * Creating a new directory: $ mkdir Todo
-  * To verify that the directory is created: $ ls
-  * Changing the current directory to work in Todo directory: $ cd Todo
-  * Initializing my project which will create package.json with this command: $ npm init
+  * Creating a new directory: ` mkdir Todo`
+  * To verify that the directory is created: `ls`
+  * Changing the current directory to work in Todo directory:  `cd Todo`
+  * Initializing my project which will create package.json with this command:  `npm init`
   * Following the prompt and accept to write out the package.json file
 
-  ## STEP 4:Installing ExpressJS
-  * To use express, install it via npm : npm install express
-  * Creating a new file index.js: touch index.js
-  * Installing the dotenv module: npm install dotenv
+    ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/49c9efa3-e275-46d9-9b14-b734c0e1102f)
 
-  image.png
+
+  ## STEP 4:Installing ExpressJS
+  * To use express, install it via npm :` npm install express`
+  * Creating a new file index.js:` touch index.js`
+  * Installing the dotenv module:` npm install dotenv`
+
+   ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/ff6d7775-48ab-4fcd-be92-c51063d36d6a)
+
 
   * To edit the index.js file creted: vim index.js
-  * Enter the following script into the file 
-  const express = require('express');
+  * Enter the following script into the file
+    
+` const express = require('express');
 require('dotenv').config();
 
 const app = express();
@@ -52,17 +59,22 @@ res.send('Welcome to Express');
 });
 
 app.listen(port, () => {
-console.log(`Server running on port ${port}`)
+console.log(`Server running on port  ${port}`)
 });
+`
+
+
 SIDENOTE: The server has been specified to run on code 5000 in the script above.
+
 * To start and check if the server works:node index.js
 
-image.png
+![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/2a5d0bce-2fc6-40d0-8817-0c998cdce221)
+
 
 * Configuring the EC2 security group,creating an inbound rule to open port 5000
 
-image.png
-the second image
+![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/82c6124a-a066-43fd-beb1-701b173c1932)
+
 
 ## STEP 5: Setting up Routes
  Configuring routes to handle these three actions for the To-Do application.
@@ -71,13 +83,14 @@ the second image
  2. Display list of all tasks
  3. Delete a completed task
 
- * Creating a folder for our routes: $ mkdir routes
- * Changing directory to routes: $ cd routes
- * Creating a file called api.js: $ touch api.js
- * Opening the file with the command: $ vim api.js
+ * Creating a folder for our routes: `mkdir routes`
+ * Changing directory to routes: ` cd routes`
+ * Creating a file called api.js: ` touch api.js`
+ * Opening the file with the command:` vim api.js`
+   
  * Entering the following script to the routes folder.
 
- const express = require ('express');
+` const express = require ('express');
 const router = express.Router();
 
 router.get('/todos', (req, res, next) => {
@@ -93,7 +106,7 @@ router.delete('/todos/:id', (req, res, next) => {
 })
 
 module.exports = router;
-
+`
 ## STEP 6:Setting up a Model
 Firstly, install a Nodejs package called mongoose which makes working with mongodb easier. 
 *  Change directory back to TO-DO folder; cd todo

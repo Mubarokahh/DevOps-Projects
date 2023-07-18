@@ -1,5 +1,5 @@
-# MERN Stack Impementation
-This project aims to implement web solution based on MERN technology stack in the AWS stack. The MERN acronym stand for MongoDB, ExpressJS, ReactJS, NodeJS.
+# Simple To-Do Application on MERN Web Stack
+This project aims to implement web solution based on MERN technology stack in the AWS stack. MERN = MongoDB + ExpressJS + ReactJS + Node.js
 
 ## Step 1: Setting up a virtual environment in AWS Cloud
 I set up an EC2 instance in AWS.I then open my mac terminal and ran the SSH comands in order to connect to the server I have running in AWS cloud using my private key.Upon connecting to the virtual environment, i configured the virtual server (Ubuntu) that is now running on my mac terminal using the following commands:
@@ -115,7 +115,7 @@ Firstly, install a Nodejs package called mongoose which makes working with mongo
 *  Creating a new file called todo.js: $ touch todo.js
 *  Open the todo.js file with vim todo.js command and enter the        following code
 
-const mongoose = require('mongoose');
+`const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 //create schema for todo
@@ -125,11 +125,10 @@ type: String,
 required: [true, 'The todo text field is required']
 }
 })
-
 //create model for todo
 const Todo = mongoose.model('todo', TodoSchema);
 
-module.exports = Todo;
+module.exports = Todo;`
 
 * Updating the routes file in the routes directory in order to work with the new model created and entering the code:
 
@@ -137,7 +136,7 @@ module.exports = Todo;
     const router = express.Router();
     const Todo = require('../models/todo');
 
-    router.get('/todos', (req, res, next) => {
+    router.get('/todos', (req, res, next) => {`
 
     //this will return all the data, exposing only the id and action field to the client
     

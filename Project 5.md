@@ -25,3 +25,6 @@ To demostretae a basic client-server using MySQL Relational Database Management 
 
 Server A name - `mysql server`
 Server B name - `mysql client`
+
+![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/db3e4a67-2423-4208-8a8c-c1bcc08eb10f)
+

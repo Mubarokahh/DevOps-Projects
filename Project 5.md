@@ -28,3 +28,9 @@ Server B name - `mysql client`
 
 ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/db3e4a67-2423-4208-8a8c-c1bcc08eb10f)
 
+On mysql server Linux Server install MySQL Server software
+
+On mysql client Linux Server install MySQL Client software
+
+
+

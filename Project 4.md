@@ -8,7 +8,7 @@ This technology stack consists of:
 
 ## Step 1: Setting up a virtual environment in AWS Cloud
 I set up an EC2 instance in AWS. I then open my mac terminal and ran the SSH comands in order to connect to the server I have running in AWS cloud using my private key.Upon connecting to the virtual environment, i configured the virtual server (Ubuntu) that is now running on my mac terminal using the following commands:
-1. `sudo apt update`
+1. `sudo apt update` 
 2. `suso apt upgrade`
 
     ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/ec6bfcd8-1538-4276-aa58-eb3bd4e5e22f)

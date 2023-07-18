@@ -13,7 +13,7 @@ I set up an EC2 instance in AWS.I then open my mac terminal and ran the SSH coma
 
   ## Step 2: Installing NodeJS on the Server
   
-  * To install NodeJS, run: 
+  * To install NodeJS, run: sudo apt install -y nodejs
   This command installs both NodeJS and NPM (Node Package Manager)
 
   [image.png]

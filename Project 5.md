@@ -43,6 +43,37 @@ By default, both of your EC2 virtual servers are located in the same local virtu
 
 ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/9a528385-fa92-4532-8d1c-3043bea4f2e6)
 
+At this point,configure MySQL server to allow connections from remote hosts.
+'sudo vi /etc/mysql/mysql.conf.d/mysqld.cnf'
+
+Replace ‘127.0.0.1’of the bind address to ‘0.0.0.0:
+![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/a921cb6b-18af-4c26-8cfd-9cf138deea7d)
+
+Create a user,database and  grant all privileges to the user on mysql server
+
+Activate mysql shell: 
+'sudo mysql'
+
+'CREATE DATABASE whiz_db;'
+
+Creating a remote user with mysql client  ip_address: 
+'CREATE USER 'Mubz'@'3.84.57.79' IDENTIFIED BY 'password';'
+
+Granting the remote user full access to the database:
+'GRANT ALL PRIVILEGES ON whiz_db.* TO 'Mubz'@'3.84.57.79';'
+
+Lastly, flushing the privileges so that MySQL will begin to use them:
+'FLUSH PRIVILEGES;'
+
+Exit mysql;
+'exit'
+
+![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/fd011a6e-069f-433f-a54f-16d72e735449)
+
+
+
+
+
 
 
 

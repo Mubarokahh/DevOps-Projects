@@ -70,6 +70,21 @@ Exit mysql;
 
 ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/fd011a6e-069f-433f-a54f-16d72e735449)
 
+From mysql client Linux Server connect remotely to mysql server Database Engine without using SSH. You must use the mysql utility to perform this action
+
+![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/bc7d1868-2d0a-41a3-9939-ad60a85f31e4)
+
+Check that you have successfully connected to a remote MySQL server and can perform SQL queries, run the command
+
+Show databases;
+
+If you see an output similar to the below image, then you have successfully completed this project – you have deloyed a fully functional MySQL Client-Server set up.
+
+![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/85f57fbb-fd0c-4042-97a0-e9084ec2d5f3)
+
+Congratulations,connection estalished!!!!
+
+
 
 
 

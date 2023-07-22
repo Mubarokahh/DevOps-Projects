@@ -29,8 +29,10 @@ Server B name - `mysql client`
 ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/db3e4a67-2423-4208-8a8c-c1bcc08eb10f)
 
 On mysql server Linux Server install MySQL Server software
+`sudo install mysql-server -y`
 
 On mysql client Linux Server install MySQL Client software
+`sudo install mysql-client -y`
 
 ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/19dcd567-a71b-4db8-9cad-3bb49dd9dc0e)
 MySQL Server
@@ -44,29 +46,29 @@ By default, both of your EC2 virtual servers are located in the same local virtu
 ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/9a528385-fa92-4532-8d1c-3043bea4f2e6)
 
 At this point,configure MySQL server to allow connections from remote hosts.
-'sudo vi /etc/mysql/mysql.conf.d/mysqld.cnf'
+`sudo vi /etc/mysql/mysql.conf.d/mysqld.cnf`
 
-Replace ‘127.0.0.1’of the bind address to ‘0.0.0.0:
+Replace `127.0.0.1`of the bind address to `‘0.0.0.0`:
 ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/a921cb6b-18af-4c26-8cfd-9cf138deea7d)
 
 Create a user,database and  grant all privileges to the user on mysql server
 
 Activate mysql shell: 
-'sudo mysql'
+`sudo mysql`
 
-'CREATE DATABASE whiz_db;'
+`CREATE DATABASE whiz_db;`
 
 Creating a remote user with mysql client  ip_address: 
-'CREATE USER 'Mubz'@'3.84.57.79' IDENTIFIED BY 'password';'
+`CREATE USER 'Mubz'@'3.84.57.79' IDENTIFIED BY 'password';`
 
 Granting the remote user full access to the database:
-'GRANT ALL PRIVILEGES ON whiz_db.* TO 'Mubz'@'3.84.57.79';'
+`GRANT ALL PRIVILEGES ON whiz_db.* TO 'Mubz'@'3.84.57.79';`
 
 Lastly, flushing the privileges so that MySQL will begin to use them:
-'FLUSH PRIVILEGES;'
+`FLUSH PRIVILEGES;`
 
 Exit mysql;
-'exit'
+`exit`
 
 ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/fd011a6e-069f-433f-a54f-16d72e735449)
 
@@ -76,7 +78,7 @@ From mysql client Linux Server connect remotely to mysql server Database Engine 
 
 Check that you have successfully connected to a remote MySQL server and can perform SQL queries, run the command
 
-Show databases;
+`Show databases;`
 
 If you see an output similar to the below image, then you have successfully completed this project – you have deloyed a fully functional MySQL Client-Server set up.
 

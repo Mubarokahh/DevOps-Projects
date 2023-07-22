@@ -54,20 +54,27 @@ Replace `127.0.0.1`of the bind address to `‘0.0.0.0`:
 Create a user,database and  grant all privileges to the user on mysql server
 
 Activate mysql shell: 
+
 `sudo mysql`
+
+Create Database
 
 `CREATE DATABASE whiz_db;`
 
-Creating a remote user with mysql client  ip_address: 
+Create a remote user with mysql client  ip_address: 
+
 `CREATE USER 'Mubz'@'3.84.57.79' IDENTIFIED BY 'password';`
 
-Granting the remote user full access to the database:
+Grantethe remote user full access to the database:
+
 `GRANT ALL PRIVILEGES ON whiz_db.* TO 'Mubz'@'3.84.57.79';`
 
-Lastly, flushing the privileges so that MySQL will begin to use them:
+Lastly, flush the privileges so that MySQL will begin to use them:
+
 `FLUSH PRIVILEGES;`
 
 Exit mysql;
+
 `exit`
 
 ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/fd011a6e-069f-433f-a54f-16d72e735449)

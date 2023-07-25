@@ -1,5 +1,14 @@
 # Simple To-Do Application on MERN Web Stack
-This project aims to implement web solution based on MERN technology stack in the AWS stack. MERN = MongoDB + ExpressJS + ReactJS + Node.js
+This project aims to implement web solution based on MERN technology stack in the AWS stack. 
+
+## MERN = MongoDB + ExpressJS + ReactJS + Node.js
+
+MongoDB: A document-based, No-SQL database used to store application data in a form of documents ExpressJS: A server side Web Application framework for Node.js ReactJS: A frontend framework developed by Facebook. It is based on JavaScript, used to build User Interface (UI) components. Node.js: A JavaScript runtime environment. It is used to run JavaScript on a machine rather than in a browser.
+
+![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/038d29eb-77f4-4ffe-ba88-903244476506)
+
+A user interacts with the ReactJS UI components at the application front-end, which is located in the browser, as demonstrated in the above picture. Through ExpressJS running on top of NodeJS, the application backend located on a server serves this frontend. Any interaction that results in a request for a data modification is sent to the Express server, which is based on NodeJS. Express pulls data from the MongoDB database as needed and delivers it to the frontend of the application, where it is then shown to the user.
+
 
 ## Step 1: Setting up a virtual environment in AWS Cloud
 I set up an EC2 instance in AWS.I then open my mac terminal and ran the SSH comands in order to connect to the server I have running in AWS cloud using my private key.Upon connecting to the virtual environment, i configured the virtual server (Ubuntu) that is now running on my mac terminal using the following commands:
@@ -13,31 +22,52 @@ I set up an EC2 instance in AWS.I then open my mac terminal and ran the SSH coma
 
   ## Step 2: Installing NodeJS on the Server
   
-  * To install NodeJS, run: 
+ * To install NodeJS, run: 
+
+`sudo apt-get install -y nodejs`
+
   This command installs both NodeJS and NPM (Node Package Manager)
 
   ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/d5e54d63-89a9-41b2-a2da-bc9811a3aba6)
 
 
   ## STEP 3:Application Code Setup
-  * Creating a new directory: ` mkdir Todo`
-  * To verify that the directory is created: `ls`
-  * Changing the current directory to work in Todo directory:  `cd Todo`
-  * Initializing my project which will create package.json with this command:  `npm init`
+  * Creating a new directory:
+
+     ` mkdir Todo`
+  * To verify that the directory is created:
+
+    `ls`
+  * Changing the current directory to work in Todo directory:
+    
+ `cd Todo`
+  * Initializing my project which will create package.json with this command:
+
+      `npm init`
+    
   * Following the prompt and accept to write out the package.json file
 
     ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/49c9efa3-e275-46d9-9b14-b734c0e1102f)
 
 
   ## STEP 4:Installing ExpressJS
-  * To use express, install it via npm :` npm install express`
-  * Creating a new file index.js:` touch index.js`
-  * Installing the dotenv module:` npm install dotenv`
+  * To use express, install it via npm :
+
+    ` npm install express`
+  * Creating a new file index.js:
+
+    ` touch index.js`
+  * Installing the dotenv module:
+
+    ` npm install dotenv`
 
    ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/ff6d7775-48ab-4fcd-be92-c51063d36d6a)
 
 
-  * To edit the index.js file creted: vim index.js
+  * To edit the index.js file creted:
+
+    `vim index.js`
+    
   * Enter the following script into the file
     
 ` const express = require('express');
@@ -132,7 +162,7 @@ module.exports = Todo;`
 
 * Updating the routes file in the routes directory in order to work with the new model created and entering the code:
 
-    const express = require ('express');
+    `const express = require ('express');
     const router = express.Router();
     const Todo = require('../models/todo');
 
@@ -163,24 +193,32 @@ module.exports = Todo;`
     .catch(next)
     })
 
-    module.exports = router;
+    module.exports = router;`
 
     ## STEP 7: Launching MongoDG Database using mLab
+
+    We need a database where we will store our data. For this we will make use of mLab. mLab provides MongoDB database as a service solution (DBaaS), so to make life easy, you will need to sign up for a shared clusters free account, which is ideal for our use case.Follow the sign up process, select AWS as the cloud provider, and choose a region near you.
+  
+  ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/4ee70c0e-7965-41a0-9f9a-90540f872364)
+
     The mLab provides MongoDB database as a service solution (DBaaS). To do this
-    * Creating a mLab account 
-    * Setting up  a MongoDB database and collection inside mLab
-    * Creating a .env file in Todo directory: touch .env
-    * Opening the file: $ vi .env
-    * Adding the connection string to access the database embeded in it
+    * Create a mLab account 
+    * Set up  a MongoDB database and collection inside mLab
+    * Create a .env file in Todo directory: touch .env
+    * Open the file: $ vi .env
+    * Add the connection string to access the database embeded in it
+      
      DB = 'mongodb+srv://<username>:<password>@<network-address>/<dbname>?retryWrites=true&w=majority' 
      SIDENOTE: replace the username, password and network-address, database name with the credentials used in creating the mongodb database
 
-     mongo image
-     Updating the index.js file to reflect the use of .env so that Node.js can connect to the database
-     * Open the file with: vim index.js
-     * Delete the current script with: :%d
+  
+     Updating the index.js file to reflect the use of .env so that Node.js can connect to the database. Simply delete existing content in the file, and update it with the entire code below. To do that using vim, follow below steps
+  
+     * Open the file with: `vim index.js`
+     * Delete the current script with: :` %d`
      * Paste the following code:
-     const express = require('express');
+       
+     `const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const routes = require('./routes/api');
@@ -216,10 +254,33 @@ next();
 
 app.listen(port, () => {
 console.log(`Server running on port ${port}`)
-});
+});`
 
- * Start the derver with: node index.js
- * 
+ * Start the derver with:
+  ` node index.js`
+
+Note: I was not able to connect to the database via port 5000 because it was already running on the system, so i had to update the script of index.js from Port 5000 to 5001. I also had to add a new inbound rule running at port 5001 to the EC2 server.
+
+![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/6c87b42b-739c-49ca-bfe5-85dda7251178)
+
+You shall see a message ‘Database connected successfully’, if so – we have our backend configured. Now we are going to test it.
+
+## Testing Backend Code without Frontend using RESTful API
+
+
+So far we have written backend part of our To-Do application, and configured a database, but we do not have a frontend UI yet. We need ReactJS code to achieve that. But during development, we will need a way to test our code using RESTfull API. Therefore, we will need to make use of some API development client to test our code.
+
+In this project, we will use Postman to test the API. You should test all the API endpoints and make sure they are working. For the endpoints that require body, you should send JSON back with the necessary fields since it’s what we setup in our code.
+Now open your Postman, create a POST request to the API http://<PublicIP-or-PublicDNS>:5000/api/todos. This request sends a new task to our To-Do list so the application could store it in the database.
+Note: make sure your set header key Content-Type as application/json
+![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/02f764c8-b30e-48e8-9801-e18843643cd5)
+
+Create a GET request to your API on http://<PublicIP-or-PublicDNS>:5000/api/todos. This request retrieves all existing records from out To-do application (backend requests these records from the database and sends it us back as a response to GET request).
+
+![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/29c60ce9-8750-4f16-bb24-20b307b4d8fc)
+
+
+
 
 
 

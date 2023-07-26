@@ -207,26 +207,25 @@ In this project, you will have the hands-on experience that showcases Three-tier
        `sudo vi /etc/fstab`
 
        ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/f2264645-49e3-40c6-ae0d-069199f7b218)
-
+       
 
     * Update /etc/fstab in this format using your own UUID and rememeber to remove the leading and ending quotes.
 
-    
 
-    ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/6e5c42e8-022a-4b02-b5f3-efba220abca7)
-
-    
-
-    * Test the configuration and reload the daemon
-    
-      `sudo mount -a`
-
-      `sudo systemctl daemon-reload`
-
-     * Verify your setup by running df -h, output must look like this:
+`      ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/dee7071d-5748-4530-bf3c-298909a7882a)
      
+`
+    * Test the configuration and reload the daemon
 
-     ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/0064c812-c4a3-4e3a-947f-70c78cff6d03)
+        `sudo mount -a`
+        
+        `sudo systemctl daemon-reload`
+
+
+
+
+    
+
      
 
    ## PREPARE THE DATABASE SERVER

@@ -123,21 +123,25 @@ In this project, you will have the hands-on experience that showcases Three-tier
 
    * Verify that your VG has been created successfully by running
 
-    sudo vgs
+    `sudo vgs`
+    
 
     ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/35e678a3-33e3-44a7-bfa4-eaad885fcd13)
 
 
     * Use lvcreate utility to create 2 logical volumes. apps-lv (Use half of the PV size), and logs-lv Use the remaining space of the       PV size. NOTE: apps-lv will be used to store data for the Website while, logs-lv will be used to store data for logs.
 
+
     
       `sudo lvcreate -n apps-lv -L 14G webdata-vg`
+
 
 
       `sudo lvcreate -n logs-lv -L 14G webdata-vg`
       
 
      ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/fb664a98-284e-4a62-b60f-ca489a1acd1a)
+     
 
 
     * verify that your Logical Volume has been created successfully by running
@@ -207,7 +211,11 @@ In this project, you will have the hands-on experience that showcases Three-tier
 
     * Update /etc/fstab in this format using your own UUID and rememeber to remove the leading and ending quotes.
 
+    
+
     ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/6e5c42e8-022a-4b02-b5f3-efba220abca7)
+
+    
 
     * Test the configuration and reload the daemon
     
@@ -216,6 +224,7 @@ In this project, you will have the hands-on experience that showcases Three-tier
       `sudo systemctl daemon-reload`
 
      * Verify your setup by running df -h, output must look like this:
+     
 
      ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/0064c812-c4a3-4e3a-947f-70c78cff6d03)
      

@@ -150,7 +150,83 @@ In this project, you will have the hands-on experience that showcases Three-tier
      
      `sudo vgdisplay -v #view complete setup - VG, PV, and LV`
      
+
+     ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/64db9097-ea38-41dc-83c2-9508650071b9)
+
+     
      `sudo lsblk`
+
+     ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/dd647f13-b878-45d2-a2ba-a2738efff0fd)
+
+     * Use mkfs.ext4 to format the logical volumes with ext4 filesystem
+    
+       `sudo mkfs -t ext4 /dev/webdata-vg/apps-lv`
+       
+  
+       `sudo mkfs -t ext4 /dev/webdata-vg/logs-lv`
+
+       ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/1c17db33-77b9-46dc-b939-b491521f3a46)
+
+      *  Create /var/www/html directory to store website files
+       
+       `sudo mkdir -p /var/www/html`
+      
+     *   Create /home/recovery/logs to store backup of log data
+    
+       `sudo mkdir -p /home/recovery/logs`
+       
+     *  Mount /var/www/html on apps-lv logical volume
+    
+       `sudo mount /dev/webdata-vg/apps-lv /var/www/html/`
+
+       ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/61db435a-4463-4817-b7aa-46cb5505edb8)
+
+
+     * Use rsync utility to backup all the files in the log directory /var/log into /home/recovery/logs (This is required before               mounting the file system)
+       
+       `sudo rsync -av /var/log/. /home/recovery/logs/`
+
+     * Mount /var/log on logs-lv logical volume. (Note that all the existing data on /var/log will be deleted. That is why step 15             above is very important)
+
+      `sudo mount /dev/webdata-vg/logs-lv /var/log`
+
+     * Restore log files back into /var/log directory
+
+       `sudo rsync -av /home/recovery/logs/log/. /var/log`
+
+       ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/9610d800-bc3b-4b5d-95d8-a7982269e2cb)
+
+     * Update /etc/fstab file so that the mount configuration will persist after restart of the server.The UUID of the device will be         used to update the /etc/fstab file;
+
+       `sudo blkid`
+       
+       `sudo vi /etc/fstab`
+
+       ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/f2264645-49e3-40c6-ae0d-069199f7b218)
+
+
+    * Update /etc/fstab in this format using your own UUID and rememeber to remove the leading and ending quotes.
+
+    ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/6e5c42e8-022a-4b02-b5f3-efba220abca7)
+
+    * Test the configuration and reload the daemon
+    
+      `sudo mount -a`
+
+      `sudo systemctl daemon-reload`
+
+     * Verify your setup by running df -h, output must look like this:
+
+     ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/0064c812-c4a3-4e3a-947f-70c78cff6d03)
+     
+
+     ## PREPARE THE DATABASE SERVER
+
+
+
+
+
+
 
 
 

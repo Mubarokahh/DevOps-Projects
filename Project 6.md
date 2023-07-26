@@ -57,18 +57,64 @@ In this project, you will have the hands-on experience that showcases Three-tier
 
   * Attach all three volumes one by one to your Web Server EC2 instance
  
-    ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/1e10a7b2-437d-4c15-a284-26f9cae7fc10)
+  ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/1e10a7b2-437d-4c15-a284-26f9cae7fc10)
 
 
  * Open up the Linux terminal to begin configuration
 
    
-    ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/e61dd763-6850-440e-aad7-d68702f60090)
+ ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/e61dd763-6850-440e-aad7-d68702f60090)
 
  * Use lsblk command to inspect what block devices are attached to the server. Notice names of your newly created devices. All devices    in Linux reside in /dev/ directory. Inspect it with ls /dev/ and make sure you see all 3 newly created block devices there – their       names  will likely be xvdf, xvdh, xvdg.
 
 
 ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/f1e53035-ba76-494e-a2fb-f3743afa86ae)
+
+* Use df -h command to see all mounts and free space on your server
+
+![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/c1d874da-5ad6-4812-952d-ea6c9dcc13a0)
+
+* Use gdisk utility to create a single partition on each of the 3 disks
+
+`sudo gdisk /dev/xvdf`
+
+![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/7585b110-78c9-40c5-8c50-1c1331872cd7)
+
+* Use lsblk utility to view the newly configured partition on each of the 3 disks.
+
+
+![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/d289edd4-e4bb-4e96-8085-048ad214f854)
+
+* Install lvm2 package using
+  
+ ` sudo yum install lvm2`.
+
+ ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/1a60266f-92fd-4c70-a8be-f3ebf6ec55e3)
+
+ 
+ Run `sudo lvmdiskscan ` command to check for available partitions.
+
+ ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/e334d44c-4d26-4b35-8071-b5695db28f60)
+
+ * Use pvcreate utility to mark each of 3 disks as physical volumes (PVs) to be used by LVM
+
+   `sudo pvcreate /dev/xvdf1`
+   
+   
+   `sudo pvcreate /dev/xvdg1`
+
+
+   `sudo pvcreate /dev/xvdh1`
+
+   ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/5df7685a-e401-4de4-aaf9-ffb17e8861c7)
+
+
+
+
+
+
+
+  
 
 
 

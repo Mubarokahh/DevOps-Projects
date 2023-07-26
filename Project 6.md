@@ -106,7 +106,53 @@ In this project, you will have the hands-on experience that showcases Three-tier
 
    `sudo pvcreate /dev/xvdh1`
 
-   ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/5df7685a-e401-4de4-aaf9-ffb17e8861c7)
+  ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/5df7685a-e401-4de4-aaf9-ffb17e8861c7)
+
+   * Verify that your Physical volume has been created successfully by running
+   
+     `sudo pvs`
+
+  ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/a37f2088-cef3-460d-8db3-00fe01247ff9)
+
+   * Use vgcreate utility to add all 3 PVs to a volume group (VG). Name the VG webdata-vg
+    
+   `sudo vgcreate webdata-vg /dev/xvdh1 /dev/xvdg1 /dev/xvdf1`
+
+   ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/c4c9d210-36d3-452a-a806-cd8032df3305)
+   
+
+   * Verify that your VG has been created successfully by running
+
+    `sudo vgs`
+
+    ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/35e678a3-33e3-44a7-bfa4-eaad885fcd13)
+
+
+    * Use lvcreate utility to create 2 logical volumes. apps-lv (Use half of the PV size), and logs-lv Use the remaining space of the       PV size. NOTE: apps-lv will be used to store data for the Website while, logs-lv will be used to store data for logs.
+
+    
+      `sudo lvcreate -n apps-lv -L 14G webdata-vg`
+
+
+      `sudo lvcreate -n logs-lv -L 14G webdata-vg`
+      
+
+     ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/fb664a98-284e-4a62-b60f-ca489a1acd1a)
+
+
+    * verify that your Logical Volume has been created successfully by running
+    
+       `sudo lvs`
+
+     ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/9d7297c8-afdb-4f11-b1ba-938130ab64d0)
+
+   * Verify the entire setup
+     
+     `sudo vgdisplay -v #view complete setup - VG, PV, and LV`
+     
+     `sudo lsblk`
+
+
 
 
 

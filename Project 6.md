@@ -123,7 +123,7 @@ In this project, you will have the hands-on experience that showcases Three-tier
 
    * Verify that your VG has been created successfully by running
 
-    `sudo vgs`
+    sudo vgs
 
     ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/35e678a3-33e3-44a7-bfa4-eaad885fcd13)
 

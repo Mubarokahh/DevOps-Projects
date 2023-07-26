@@ -35,6 +35,20 @@ In this project, you will have the hands-on experience that showcases Three-tier
 
   Across all project we have implemented previously, we used ‘Ubuntu’, but it is better to be well-versed with various Linux distributions, thus, for this projects we will use very popular distribution called ‘RedHat’ (it also has a fully compatible derivative – CentOS)
 
-  * SIDENOTE:for Ubuntu server, when connecting to it via SSH/Putty or any other tool, we used ubuntu user, but for RedHat you will need to use ec2-user user. Connection string will look like ec2-user@<Public-IP>
+  * SIDENOTE: for Ubuntu server, when connecting to it via SSH/Putty or any other tool, we used ubuntu user, but for RedHat you will need to use ec2-user user. Connection string will look like ec2-user@<Public-IP>
+
+  ## LAUNCH AN EC2 INSTANCE THAT WILL SERVE AS “WEB SERVER”
+
+  Launch an EC2 instance that will serve as “Web Server”. Create 3 volumes in the same AZ as your Web Server EC2, each of 10 GiB
+
+
+
+  ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/551f9ce3-9a6c-4740-b18c-cedafaf64865)
+
+  ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/a583a9e4-8fb7-453b-851b-edc4d1402f2c)
+
+  
+
+
 
 

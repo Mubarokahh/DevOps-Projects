@@ -220,7 +220,7 @@ In this project, you will have the hands-on experience that showcases Three-tier
      ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/0064c812-c4a3-4e3a-947f-70c78cff6d03)
      
 
-     ## PREPARE THE DATABASE SERVER
+   ## PREPARE THE DATABASE SERVER
 
 
 

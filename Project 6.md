@@ -41,6 +41,7 @@ In this project, you will have the hands-on experience that showcases Three-tier
 
   Launch an EC2 instance that will serve as “Web Server”. Create 3 volumes in the same AZ as your Web Server EC2, each of 10 GiB
 
+  ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/768c420d-0530-41ef-9321-00b7ffaa90d8)
 
 
   ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/551f9ce3-9a6c-4740-b18c-cedafaf64865)

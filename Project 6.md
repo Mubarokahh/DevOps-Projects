@@ -221,8 +221,13 @@ In this project, you will have the hands-on experience that showcases Three-tier
         
         `sudo systemctl daemon-reload`
 
+        
 
+   *  Verify the set up ny running df -h , output must look like this
 
+![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/d430d521-5673-40e5-b3d9-7344dd8a7eae)
+
+    
 
     
 

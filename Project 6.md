@@ -44,9 +44,34 @@ In this project, you will have the hands-on experience that showcases Three-tier
   ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/768c420d-0530-41ef-9321-00b7ffaa90d8)
 
 
+
+
   ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/551f9ce3-9a6c-4740-b18c-cedafaf64865)
 
+
+
+
   ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/a583a9e4-8fb7-453b-851b-edc4d1402f2c)
+
+  
+
+  * Attach all three volumes one by one to your Web Server EC2 instance
+ 
+    ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/1e10a7b2-437d-4c15-a284-26f9cae7fc10)
+
+
+ * Open up the Linux terminal to begin configuration
+
+   
+    ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/e61dd763-6850-440e-aad7-d68702f60090)
+
+ * Use lsblk command to inspect what block devices are attached to the server. Notice names of your newly created devices. All devices    in Linux reside in /dev/ directory. Inspect it with ls /dev/ and make sure you see all 3 newly created block devices there – their       names  will likely be xvdf, xvdh, xvdg.
+
+
+![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/f1e53035-ba76-494e-a2fb-f3743afa86ae)
+
+
+
 
   
 

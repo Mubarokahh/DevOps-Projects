@@ -235,6 +235,26 @@ In this project, you will have the hands-on experience that showcases Three-tier
 
    ## PREPARE THE DATABASE SERVER
 
+   
+   * Launch a second RedHat EC2 instance that will have a role – ‘DB Server’
+Repeat the same steps as for the Web Server, but instead of apps-lv create db-lv and mount it to /db directory instead of /var/www/html/.
+
+![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/365dbef6-d9ee-472a-92ae-a75e80d005a1)
+
+![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/33c378cb-5956-4c33-9449-5e2bcb91f2f7)
+
+![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/6f3e03b8-ae01-4ffd-9e69-ed4e93a08107)
+
+![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/68efdbcb-5b41-4405-aeb3-f58945b8daa8)
+
+![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/c28318ed-496a-4def-ab99-c4082a8e3087)
+
+![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/06dc7885-93fd-4fb9-8261-66dda53752dd)
+
+![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/f18f33ad-736c-455c-a119-fe2555f40df9)
+
+![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/dd9b911c-1bb4-4f6a-b40d-79545a32bcac)
+
 
 
 

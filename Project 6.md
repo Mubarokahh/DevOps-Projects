@@ -333,6 +333,75 @@ Repeat the same steps as for the Web Server, but instead of apps-lv create db-lv
 
   ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/98875dd2-f81a-4e3b-9010-1b398c158cf7)
 
+  * Install MySQL on your DB Server EC2
+    
+    `sudo yum update`
+    
+    `sudo yum install mysql-server`
+
+  * Verify that the service is up and running by using sudo systemctl status mysqld, if it is not running, restart the service and          enable it so it will be running even after reboot:
+
+   ` sudo systemctl restart mysqld`
+
+
+    `sudo systemctl enable mysqld`
+
+    ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/07435d7a-2f9b-4944-8923-0e2a3bc469b6)
+
+
+  * Configure DB to work with WordPress
+    
+     `sudo mysql`
+    
+     `CREATE DATABASE wordpress;`
+    
+     `CREATE USER `myuser`@`<Web-Server-Private-IP-Address>` IDENTIFIED BY 'mypass';`
+    
+     `GRANT ALL ON wordpress.* TO 'myuser'@'<Web-Server-Private-IP-Address>';`
+    
+     `FLUSH PRIVILEGES;`
+    
+     `SHOW DATABASES;`
+    
+     `exit`
+
+    ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/24f7f2a7-4bd7-41fc-8dce-be3e803332ff)
+
+    * Configure WordPress in the web server to connect to remote database.
+      
+     NOTE: Do not forget to open MySQL port 3306 on DB Server EC2. For extra security, you shall allow access to the DB server ONLY          from your Web Server’s IP address, so in the Inbound Rule configuration specify source as /32
+
+    ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/78b39e89-d90f-4cd7-8758-f7ee8d1162c7)
+
+    *Install MySQL client and test that you can connect from your Web Server to your DB server by using mysql-client
+    
+     `sudo yum install mysql`
+    
+     `sudo mysql -u admin -p -h <DB-Server-Private-IP-address>`
+    
+    ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/2cf50f74-58f9-4eab-bc47-569972dfd254)
+
+    
+    * Verify if you can successfully execute SHOW DATABASES; command and see a list of existing databases
+   
+      ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/54756b39-735d-42ed-9ca8-24700fa52bcb)
+
+      ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/5c551ef8-aaa3-4ec3-9ba6-0eb809ff9910)
+
+      
+    * Change permissions and configuration so Apache could use WordPress
+   
+    * Enable TCP port 80 in Inbound Rules configuration for your Web Server EC2 (enable from everywhere 0.0.0.0/0 or from your                workstation’s IP)
+      
+    * Try to access from your browser the link to your WordPress http://<Web-Server-Public-IP-Address>/wordpress/
+   
+      ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/088370a0-8f10-4fcb-a317-3ab904496b44)
+
+      ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/f119eedb-4bac-4b58-963a-d604f68793df)
+
+
+
+
 
   
 

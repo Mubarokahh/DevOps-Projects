@@ -229,10 +229,6 @@ In this project, you will have the hands-on experience that showcases Three-tier
 
     
 
-    
-
-     
-
    ## PREPARE THE DATABASE SERVER
 
    
@@ -275,15 +271,32 @@ Repeat the same steps as for the Web Server, but instead of apps-lv create db-lv
 
 * To install PHP and it’s depemdencies
   
-`sudo yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
- sudo yum install yum-utils http://rpms.remirepo.net/enterprise/remi-release-8.rpm
- sudo yum module list php
- sudo yum module reset php
- sudo yum module enable php:remi-7.4
- sudo yum install php php-opcache php-gd php-curl php-mysqlnd
- sudo systemctl start php-fpm
- sudo systemctl enable php-fpm
- setsebool -P httpd_execmem 1`
+ `sudo yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm`
+
+ `sudo yum install yum-utils http://rpms.remirepo.net/enterprise/remi-release-8.rpm`
+ 
+ `sudo yum module list php`
+ 
+ `sudo yum module reset php`
+ 
+` sudo yum module enable php:remi-7.4` 
+ 
+ `sudo yum install php php-opcache php-gd php-curl php-mysqlnd`
+ 
+ `sudo systemctl start php-fpm`
+ 
+ `sudo systemctl enable php-fpm`
+ 
+ `setsebool -P httpd_execmem 1`
+
+ ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/b953d78d-8ea0-4a46-bcd4-85baf4525143)
+
+ ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/7c9a213d-d002-45af-a7f2-3ddded673ea1)
+
+ ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/a65860be-3de3-47f5-adc1-274a92241a17)
+
+ ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/8561bc59-5e56-4b09-8705-fd96ce80f138)
+
 
  * Restart Apache
    
@@ -291,19 +304,37 @@ Repeat the same steps as for the Web Server, but instead of apps-lv create db-lv
 
  * Download wordpress and copy wordpress to var/www/html
    
-  `mkdir wordpress
-  cd   wordpress
-  sudo wget http://wordpress.org/latest.tar.gz
-  sudo tar xzvf latest.tar.gz
-  sudo rm -rf latest.tar.gz
-  cp wordpress/wp-config-sample.php wordpress/wp-config.php
-  cp -R wordpress /var/www/html/`
+   `mkdir wordpress`
+  
+  `cd   wordpress`
+  
+  `sudo wget http://wordpress.org/latest.tar.gz`
+  
+ ` sudo tar xzvf latest.tar.gz`
+  
+  `sudo rm -rf latest.tar.gz`
+  
+  `cp wordpress/wp-config-sample.php wordpress/wp-config.php`
+  
+  `cp -R wordpress /var/www/html/`
+
+  ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/651a0530-1529-4427-a82c-f190dfdfb798)
+  
+  ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/a56fa7b0-4a1d-4f38-97f3-5d1d9b4bede7)
+
 
  * Configure SELinux Policies
    
-  `sudo chown -R apache:apache /var/www/html/wordpress
-  sudo chcon -t httpd_sys_rw_content_t /var/www/html/wordpress -R
-  sudo setsebool -P httpd_can_network_connect=1`
+  `sudo chown -R apache:apache /var/www/html/wordpress`
+  
+  `sudo chcon -t httpd_sys_rw_content_t /var/www/html/wordpress -R`
+  
+   `sudo setsebool -P httpd_can_network_connect=1`
+
+  ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/98875dd2-f81a-4e3b-9010-1b398c158cf7)
+
+
+  
 
 
 

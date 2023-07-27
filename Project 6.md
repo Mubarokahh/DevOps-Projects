@@ -255,6 +255,35 @@ Repeat the same steps as for the Web Server, but instead of apps-lv create db-lv
 
 ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/dd9b911c-1bb4-4f6a-b40d-79545a32bcac)
 
+![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/6a3d89e8-8f71-452d-96c7-105d4629e106)
+
+##  Install WordPress on your Web Server EC2
+
+* Update the repository
+  
+  `sudo yum -y update`
+
+* Install wget, Apache and it’s dependencies
+  
+  `sudo yum -y install wget httpd php php-mysqlnd php-fpm php-json`
+
+* Start Apache
+  
+  `sudo systemctl enable httpd`
+  
+  `sudo systemctl start httpd`
+
+* To install PHP and it’s depemdencies
+  
+`sudo yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
+ sudo yum install yum-utils http://rpms.remirepo.net/enterprise/remi-release-8.rpm
+ sudo yum module list php
+ sudo yum module reset php
+ sudo yum module enable php:remi-7.4
+ sudo yum install php php-opcache php-gd php-curl php-mysqlnd
+ sudo systemctl start php-fpm
+ sudo systemctl enable php-fpm
+ setsebool -P httpd_execmem 1`
 
 
 

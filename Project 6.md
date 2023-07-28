@@ -139,6 +139,7 @@ In this project, you will have the hands-on experience that showcases Three-tier
 
       `sudo lvcreate -n logs-lv -L 14G webdata-vg`
       
+      
 
      ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/fb664a98-284e-4a62-b60f-ca489a1acd1a)
      

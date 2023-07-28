@@ -38,7 +38,7 @@ Grafana – a multi-platform open source analytics and interactive visualization
 
   I spinned up an EC2 instance with RHEL Linux 8 Operating System  that will be used as the NFS server, Once the server started running, i created 3 volumes and attached them to the NFS server.
 
-  ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/2d343f54-58af-42ce-bc97-684dd04b0ee0)
+    ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/2d343f54-58af-42ce-bc97-684dd04b0ee0)
 
   ##  Creating And Mounting Logical Volumes On The EC2 Instance For The NFS Server
 
@@ -68,30 +68,30 @@ Grafana – a multi-platform open source analytics and interactive visualization
 
     * To confirm that each of the disks has been sucessfully partitioned ; `lsblk`
 
-    ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/797770ba-896d-46aa-89bd-40b876b680ee)
+      ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/797770ba-896d-46aa-89bd-40b876b680ee)
 
 
-    ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/f06589b2-cfb4-4b33-a3f1-ba5d64a20347)
+      ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/f06589b2-cfb4-4b33-a3f1-ba5d64a20347)
 
 
-    ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/b6abe421-dc06-44e3-871a-b5399688d634)
+      ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/b6abe421-dc06-44e3-871a-b5399688d634)
 
-    ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/1734055e-d384-4b7b-8a8b-3b61f7ddc95e)
+      ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/1734055e-d384-4b7b-8a8b-3b61f7ddc95e)
 
     * Install lvm2 package
    
       `sudo yum install lvm2`
 
-    ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/89a69c4d-0831-4cb3-b87b-f3d174525d3e)
+       ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/89a69c4d-0831-4cb3-b87b-f3d174525d3e)
 
     * To check for available partitions, run
    
       `sudo lvmdiskscan `
 
-      ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/1d735ad2-e426-4495-b8e7-e4cc0c3a4d52)
+       ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/1d735ad2-e426-4495-b8e7-e4cc0c3a4d52)
       
 
-   *   Use pvcreate utility to mark each of 3 disks as physical volumes (PVs) to be used by LVM
+    * Use pvcreate utility to mark each of 3 disks as physical volumes (PVs) to be used by LVM
 
        `sudo pvcreate /dev/xvdf1`
 
@@ -101,9 +101,30 @@ Grafana – a multi-platform open source analytics and interactive visualization
 
 
        ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/555db8ac-cc26-4d86-bb2f-b8ff1950505e)
+      
 
+     *  Verify that your Physical volume has been created successfully by running
 
-       
+         ` sudo pvs`
+
+     *  Use vgcreate utility to add all 3 PVs to a volume group (VG). Name the VG filedata-vg
+   
+       `sudo vgcreate filedata-vg  /dev/xvdf1 /dev/xvdg1 /dev/xvdh1`
+
+       ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/6bada589-fca6-4060-9243-c4bbb5f161e3)
+
+    * Verify that your VG has been created successfully by running
+   
+       `sudo vgs`
+
+    * Use lvcreate utility to create 3 logical volumes,lv-opt lv-apps, and lv-logs
+   
+       `sudo lvcreate –n lv-opt –L 9G filedata-vg`
+      
+       `sudo lvcreate –n lv-apps –L 9G filedata-vg`
+      
+       `sudo lvcreate –n lv-logs –L 9G filedata-vg`
+
 
       
 

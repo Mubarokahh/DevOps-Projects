@@ -50,10 +50,64 @@ Grafana – a multi-platform open source analytics and interactive visualization
 
   * Use gdisk utility to create  a single partition on each disk
 
-   ` sudo gdisk /dev/gdvf`
+    ` sudo gdisk /dev/xvdf`
 
-   ` sudo gdisk /dev/gdvg`
+    ` sudo gdisk /dev/xvdg`
+ 
+    ` sudo gdisk /dev/xvdh`
 
-   ` sudo gdisk /dev/gdvh`
+     NOTE: For each partition, the following steps are required:
+
+    Entering the key n to create new partition and selecting the default settings by hitting enter
+
+    The partition type I selected is linux file system by entering its HEX code 8300
+
+    Entering the p key to confirm the partition is created
+
+    Entering the w key to write the partition and confirming with y key
+
+    * To confirm that each of the disks has been sucessfully partitioned ; `lsblk`
+
+    ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/797770ba-896d-46aa-89bd-40b876b680ee)
+
+
+    ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/f06589b2-cfb4-4b33-a3f1-ba5d64a20347)
+
+
+    ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/b6abe421-dc06-44e3-871a-b5399688d634)
+
+    ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/1734055e-d384-4b7b-8a8b-3b61f7ddc95e)
+
+    * Install lvm2 package
+   
+      `sudo yum install lvm2`
+
+    ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/89a69c4d-0831-4cb3-b87b-f3d174525d3e)
+
+    * To check for available partitions, run
+   
+      `sudo lvmdiskscan `
+
+      ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/1d735ad2-e426-4495-b8e7-e4cc0c3a4d52)
+      
+
+   *   Use pvcreate utility to mark each of 3 disks as physical volumes (PVs) to be used by LVM
+
+       `sudo pvcreate /dev/xvdf1`
+
+       `sudo pvcreate /dev/xvdg1`
+
+       `sudo pvcreate /dev/xvdh1`
+
+
+       ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/555db8ac-cc26-4d86-bb2f-b8ff1950505e)
+
+
+       
+
+      
+
+
+
 
   

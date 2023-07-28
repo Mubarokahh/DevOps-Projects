@@ -40,4 +40,20 @@ Grafana – a multi-platform open source analytics and interactive visualization
 
   ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/2d343f54-58af-42ce-bc97-684dd04b0ee0)
 
+  ##  Creating And Mounting Logical Volumes On The EC2 Instance For The NFS Server
+
+  Instead of formating the disks as ext4 you will have to format them as xfs.
+
+  * To inspect the blocks that are connected to the server, run: `lsblk`
+
+  * To check the free space on the srver: `df -h`
+
+  * Use gdisk utility to create  a single partition on each disk
+
+   ` sudo gdisk /dev/gdvf`
+
+   ` sudo gdisk /dev/gdvg`
+
+   ` sudo gdisk /dev/gdvh`
+
   

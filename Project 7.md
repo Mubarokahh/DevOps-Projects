@@ -126,6 +126,130 @@ Grafana – a multi-platform open source analytics and interactive visualization
        `sudo lvcreate –n lv-logs –L 9G filedata-vg`
 
 
+       ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/d5f3cb6e-d4a9-4b5a-b491-cf69b45cd3b1)
+
+      * Verify the whole set up
+     
+       ` sudo vgdisplay -v`
+
+      ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/6397f46b-2bf2-4951-a03f-a8617ff23f09)
+   
+      * Format the logical volumes created with xfs filesystem:
+
+          `sudo mkfs –t xfs /dev/filedata-vg/lv-opt`
+        
+          `sudo mkfs –t xfs /dev/filedata-vg/lv-apps`
+        
+          `sudo mkfs –t xfs /dev/filedata-vg/lv-log`s
+
+
+        ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/719ea7ca-25fa-4b99-afa1-c9aa15f504d2)
+   
+      * Creating a directory where the 3 logical volumes will be mounted in /mnt directory:
+        `
+         `sudo mkdir /mnt/opt
+        
+         `sudo mkdir /mnt/apps`
+        
+         `sudo mkdir /mnt/logs`
+
+      * Create mount points on /mnt directory for the logical volumes as follow:
+
+         Mount lv-apps on /mnt/apps – To be used by webservers
+
+         Mount lv-logs on /mnt/logs – To be used by webserver logs
+
+         Mount lv-opt on /mnt/opt – To be used by Jenkins server in Project 8
+   
+          ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/3bae1ce3-b438-4c80-b3d0-f792af22d0a3)
+
+
+      *  Install NFS server, configure it to start on reboot and make sure it is u and running
+        
+         `sudo yum -y update`
+         
+         `sudo yum install nfs-utils -y`
+         
+         `sudo systemctl start nfs-server.service`
+         
+         `sudo systemctl enable nfs-server.service`
+         
+         `sudo systemctl status nfs-server.service`
+
+          ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/31add7a7-67ea-44b7-bc43-a9e8fafd1640)
+
+          ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/415e7d18-f3a8-402b-b5c5-f8c68be946e7)
+
+     * Export the mounts for webservers’ subnet cidr to connect as clients. For simplicity, you will install your all three Web
+          Servers inside the same subnet, but in production set up you would probably want to separate each tier inside its own subnet            for higher level of security.
+            Note:To check your subnet cidr – open your EC2 details in AWS web console and locate ‘Networking’ tab and open a Subnet link
+
+           ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/a76fcc5a-b67a-45f7-a7ee-faf21c02bdd8)
+
+     * Make sure we set up permission that will allow our Web servers to read, write and execute files on NFS:
+
+             `sudo chown -R nobody: /mnt/apps`
+             
+             `sudo chown -R nobody: /mnt/logs`
+
+             `sudo chown -R nobody: /mnt/opt`
+
+            ` sudo chmod -R 777 /mnt/apps`
+
+             `sudo chmod -R 777 /mnt/logs`
+
+             `sudo chmod -R 777 /mnt/opt`
+         
+
+
+           ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/e0c2162a-2927-49db-a6f1-07026a7e8f8c)
+
+     * Restarting the nfs service
+
+            `sudo systemctl restart nfs-server.service`
+
+
+     * Configure access to NFS for clients within the same subnet (example of Subnet CIDR - 172.31.80.0/20
+
+
+              -  Open the NFS port file
+                
+                `sudo vi /etc/exports`
+              -  Paste the following
+
+                	/mnt/apps 172.31.80.0/20(rw,sync,no_all_squash,no_root_squash)
+                	/mnt/logs 172.31.80.0/20(rw,sync,no_all_squash,no_root_squash)
+                	/mnt/opt 172.31.80.0/20(rw,sync,no_all_squash,no_root_squash)
+
+                 ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/2da5e542-3f1b-43c3-b745-48cf1d157b09)
+
+                ` sudo exportfs -arv`
+
+               ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/48c20657-7a8a-4d82-83f7-4c161d86ef7a)
+
+      * Check which port is used by NFS and open it using Security Groups (add new Inbound Rule)
+           
+                `rpcinfo -p | grep nfs`
+
+               ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/13e512c9-a75e-4508-a7dd-e99f9e56524a)
+
+      * In order for NFS server to be accessible from your client, you must also open following ports: TCP 111, UDP 111, UDP   2049
+
+
+
+
+
+
+       
+
+
+
+
+        
+
+
+
+
       
 
 

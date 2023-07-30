@@ -184,7 +184,7 @@ Grafana – a multi-platform open source analytics and interactive visualization
           Servers inside the same subnet, but in production set up you would probably want to separate each tier inside its own subnet            for higher level of security.
             Note:To check your subnet cidr – open your EC2 details in AWS web console and locate ‘Networking’ tab and open a Subnet link
 
-           ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/a76fcc5a-b67a-45f7-a7ee-faf21c02bdd8)
+        ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/a76fcc5a-b67a-45f7-a7ee-faf21c02bdd8)
 
      * Make sure we set up permission that will allow our Web servers to read, write and execute files on NFS:
 
@@ -202,7 +202,7 @@ Grafana – a multi-platform open source analytics and interactive visualization
          
 
 
-           ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/e0c2162a-2927-49db-a6f1-07026a7e8f8c)
+        ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/e0c2162a-2927-49db-a6f1-07026a7e8f8c)
 
      * Restarting the nfs service
 
@@ -212,28 +212,29 @@ Grafana – a multi-platform open source analytics and interactive visualization
      * Configure access to NFS for clients within the same subnet (example of Subnet CIDR - 172.31.80.0/20
 
 
-              -  Open the NFS port file
+        -  Open the NFS port file
                 
-                `sudo vi /etc/exports`
+          `sudo vi /etc/exports`
+       
               -  Paste the following
 
                 	/mnt/apps 172.31.80.0/20(rw,sync,no_all_squash,no_root_squash)
                 	/mnt/logs 172.31.80.0/20(rw,sync,no_all_squash,no_root_squash)
                 	/mnt/opt 172.31.80.0/20(rw,sync,no_all_squash,no_root_squash)
 
-                 ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/2da5e542-3f1b-43c3-b745-48cf1d157b09)
+       ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/2da5e542-3f1b-43c3-b745-48cf1d157b09)
 
                 ` sudo exportfs -arv`
 
-               ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/48c20657-7a8a-4d82-83f7-4c161d86ef7a)
+       ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/48c20657-7a8a-4d82-83f7-4c161d86ef7a)
 
       * Check which port is used by NFS and open it using Security Groups (add new Inbound Rule)
            
-                `rpcinfo -p | grep nfs`
+            `rpcinfo -p | grep nfs`    
 
-               ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/13e512c9-a75e-4508-a7dd-e99f9e56524a)
+     ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/13e512c9-a75e-4508-a7dd-e99f9e56524a)
 
-      * In order for NFS server to be accessible from your client, you must also open following ports: TCP 111, UDP 111, UDP   2049
+      * In order for NFS server to be accessible from your client, you must also open following ports: TCP 111, UDP 111, UDP  2049
 
 
 

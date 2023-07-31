@@ -235,6 +235,72 @@ Grafana – a multi-platform open source analytics and interactive visualization
      ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/13e512c9-a75e-4508-a7dd-e99f9e56524a)
 
       * In order for NFS server to be accessible from your client, you must also open following ports: TCP 111, UDP 111, UDP  2049
+   
+     ## Setting Up And Configuring The Database Server
+
+    * I spinned up another EC2 instance on the AWS to serve the purpose of a database server.connected to the server from my terminal via ssh connection and performed the following commands in setting up mysql database:
+
+       * Updating the server
+
+       `Sudo apt update`
+     
+       * Upgrading the server
+     
+        `sudo apt upgrade`
+
+      * Install MySQL server
+
+        `sudo apt install mysql-server`
+
+        ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/5789a7d3-0c38-4e21-a5d9-a59c793bf408)
+
+      *  Create a database and name it tooling
+      *  Create a database user and name it webaccess
+      *  Grant permission to webaccess user on tooling database to do anything only from the webservers subnet cidr
+     
+        mysql> CREATE DATABASE tooling;
+        mysql> CREATE USER ‘webaccess’@’172.31.80.0/20’ IDENTIFIED BY ‘mypassword’;
+        mysql> GRANT ALL PRIVILEGES ON ‘tooling’.* TO ‘webaccess’@’172.31.80.0/20’;
+
+
+      ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/644c903a-d73e-42e2-8fa4-2df58751663f)
+
+      ## Prepare the Web Servers
+
+      We need to make sure that our Web Servers can serve the same content from shared storage solutions, in our case – NFS Server and        MySQL database.
+      You already know that one DB can be accessed for reads and writes by multiple clients. For storing shared files that our Web            Servers will use – we will utilize NFS and mount previously created Logical Volume lv-apps to the folder where Apache stores            files to be served to the users (/var/www).
+
+      This approach will make our Web Servers stateless, which means we will be able to add new ones or remove them whenever we need,         and the integrity of the data (in the database and on NFS) will be preserved.
+
+    * Launche 3 EC2 instances with RHEL 8 Operating System on the AWS which will serve as servers.
+    * Update and upgrade the three servers
+
+        `sudo yum update -y`
+      
+    * Install nfs clients on the 3 severs:$
+
+      sudo yum install nfs-utils nfs4-acl-tools –y
+
+    *
+    *
+    *
+    *
+    *
+    *
+    
+
+
+
+
+
+
+     
+        
+
+
+         
+
+
 
 
 

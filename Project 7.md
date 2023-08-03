@@ -273,16 +273,27 @@ Grafana – a multi-platform open source analytics and interactive visualization
       This approach will make our Web Servers stateless, which means we will be able to add new ones or remove them whenever we need,         and the integrity of the data (in the database and on NFS) will be preserved.
 
     * Launche 3 EC2 instances with RHEL 8 Operating System on the AWS which will serve as servers.
-    * Update and upgrade the three servers
+    * Update and upgrade the three servers.
 
         `sudo yum update -y`
       
     * Install nfs clients on the 3 severs:$
 
-      sudo yum install nfs-utils nfs4-acl-tools –y
+      `sudo yum install nfs-utils nfs4-acl-tools –y`
 
-    *
-    *
+      ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/a4fe561e-63df-447d-bea4-a12a095c8636)
+
+      
+    N0TE: I will be using one out of the three server as pictorial reference for the activities.{WEBSERVER 1}
+    
+    * Create the directory where to serve our devops tooling web content
+      `sudo mkdir /var/www`
+      
+      
+    * Target the NFS exports for apps with the NFS server’s private IP address and mounting it on /var/www directory:
+   
+      `sudo mount -t nfs -o rw,nosuid 172.31.92.26:/mnt/apps /var/www`
+      
     *
     *
     *

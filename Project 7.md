@@ -38,7 +38,7 @@ Grafana – a multi-platform open source analytics and interactive visualization
 
   I spinned up an EC2 instance with RHEL Linux 8 Operating System  that will be used as the NFS server, Once the server started running, i created 3 volumes and attached them to the NFS server.
 
-    ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/2d343f54-58af-42ce-bc97-684dd04b0ee0)
+  ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/2d343f54-58af-42ce-bc97-684dd04b0ee0)
 
   ##  Creating And Mounting Logical Volumes On The EC2 Instance For The NFS Server
 

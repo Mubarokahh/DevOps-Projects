@@ -376,6 +376,8 @@ Grafana – a multi-platform open source analytics and interactive visualization
     * Apply tooling-db.sql script to your database using this command
     
      ` mysql -h -u -p < tooling-db.sql`
+
+    '/'
     
 
 

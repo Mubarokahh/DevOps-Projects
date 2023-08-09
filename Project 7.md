@@ -294,9 +294,37 @@ Grafana – a multi-platform open source analytics and interactive visualization
    
       `sudo mount -t nfs -o rw,nosuid 172.31.92.26:/mnt/apps /var/www`
       
-    *
-    *
-    *
+    * Verify that NFS was mounted successfully by running df -h. Make sure that the changes will persist on Web Server after reboot
+
+      ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/5440ea37-fb6c-4483-85f6-81eec5daec52)
+
+      `sudo vi /etc/fstab`
+
+    * add following line
+
+       `<NFS-Server-Private-IP-Address>:/mnt/apps /var/www nfs defaults 0 0`
+
+      ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/3b6fdc72-2588-4a3d-992d-2186804a356c)
+
+    *  Install Remi’s repository, Apache and PHP
+
+       `sudo yum install httpd -y`
+
+       `sudo dnf install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm`
+
+       `sudo dnf install dnf-utils http://rpms.remirepo.net/enterprise/remi-release-8.rpm`
+
+       `sudo dnf module reset php`
+
+       `sudo dnf module enable php:remi-7.4`
+
+       `sudo dnf install php php-opcache php-gd php-curl php-mysqlnd`
+
+       `sudo systemctl start php-fpm`
+
+       `sudo systemctl enable php-fpm`
+
+       `setsebool -P httpd_execmem 1`
     *
     
 

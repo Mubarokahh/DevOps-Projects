@@ -377,7 +377,11 @@ Grafana – a multi-platform open source analytics and interactive visualization
     
      ` mysql -h -u -p < tooling-db.sql`
 
-    '/'
+    ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/b28b2be7-f43c-4409-944e-0f0a0af82759)
+
+
+    * Create in MySQL a new admin user with username: myuser and password: password
+
     
 
 

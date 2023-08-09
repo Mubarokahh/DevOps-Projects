@@ -367,6 +367,12 @@ Grafana – a multi-platform open source analytics and interactive visualization
 
       ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/cc977aba-912a-4c78-bd24-4b2ef8cab140)
 
+    * Update the website’s configuration to connect to the database (in /var/www/html/functions.php file)
+
+     sudo vi /var/www/html/functions.php
+    * 
+    
+
 
    
 

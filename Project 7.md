@@ -370,7 +370,12 @@ Grafana – a multi-platform open source analytics and interactive visualization
     * Update the website’s configuration to connect to the database (in /var/www/html/functions.php file)
 
      sudo vi /var/www/html/functions.php
-    * 
+
+    ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/cfabc71a-89cf-4937-a3e2-64a02fa12be7)
+
+    * Apply tooling-db.sql script to your database using this command
+    
+     ` mysql -h -u -p < tooling-db.sql`
     
 
 

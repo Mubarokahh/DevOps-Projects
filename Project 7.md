@@ -325,7 +325,53 @@ Grafana – a multi-platform open source analytics and interactive visualization
        `sudo systemctl enable php-fpm`
 
        `setsebool -P httpd_execmem 1`
-    *
+       
+     *  Verify that Apache files and directories are available on the Web Server in /var/www and also on the NFS server in /mnt/apps.       If you see the same files – it means NFS is mounted correctly. You can try to create a new file touch test.txt from one server and         check if the same file is accessible from other Web Servers.
+   
+      ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/99bd7290-b5ab-42bd-a66e-efb5c3e40495)
+    
+     * Locate the log folder for Apache on the Web Server and mount it to NFS server’s export for logs.
+     
+    ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/58d915fe-61b8-4687-bea0-86dbcb2b240e)
+
+
+     * Verify that NFS was mounted successfully by running df -h. Make sure that the changes will persist on Web Server after rebooot.
+    
+    `sudo vi /etc/fstab`
+
+    ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/c04db69c-c3c4-4e36-b6fc-655f5fa3b8bd)
+
+     * Fork the tooling source code from Darey.io Github Account to your Github account.
+
+    ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/c0f4d8fe-0a8e-4c21-81b9-944e7b5a9fa8)
+    
+     * Copying the html folder from the cloned repo to /var/www/html
+
+      `sudo cp –R html/. /var/www/html`
+
+    ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/0db43c99-2542-43c6-95d6-d1d71d4c994b)
+
+    * Do not forget to open TCP port 80 on the Web Server.
+      
+      ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/5a680c9c-d239-431a-a322-e2fb9455e87d)
+
+      ## NOTE
+      
+    * If you encounter 403 Error – check permissions to your /var/www/html folder and also disable SELinux
+
+      `sudo setenforce 0`
+      
+    *  To make this change permanent – open following config file
+
+     `sudo vi /etc/sysconfig/selinux` and set SELINUX=disabledthen restrt httpd
+
+      ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/cc977aba-912a-4c78-bd24-4b2ef8cab140)
+
+
+   
+
+
+
     
 
 

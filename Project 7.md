@@ -389,6 +389,12 @@ Grafana – a multi-platform open source analytics and interactive visualization
 
    ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/f7eea6c1-4202-435c-94e7-bafd4800e7c0)
 
+    * Open the website in your browser http://<Web-Server-Public-IP-Address-or-Public-DNS-Name>/index.php and make           sure you can login into the website with myuser user.
+
+
+   ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/03dad349-7202-4edf-8d0e-c047fa47e327)
+
+
 
 
 

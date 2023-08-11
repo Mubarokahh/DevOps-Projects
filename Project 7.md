@@ -382,6 +382,16 @@ Grafana – a multi-platform open source analytics and interactive visualization
 
     * Create in MySQL a new admin user with username: myuser and password: password
 
+
+   ` INSERT INTO ‘users’ (‘id’, ‘username’, ‘password’, ’email’, ‘user_type’, ‘status’) VALUES
+   -> (1, ‘myuser’, ‘5f4dcc3b5aa765d61d8327deb882cf99’, ‘user@mail.com’, ‘admin’, ‘1’);`
+
+
+   ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/f7eea6c1-4202-435c-94e7-bafd4800e7c0)
+
+
+
+
     
 
 

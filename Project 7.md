@@ -395,6 +395,10 @@ Grafana – a multi-platform open source analytics and interactive visualization
    ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/03dad349-7202-4edf-8d0e-c047fa47e327)
 
 
+   ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/73dc959b-7e75-4344-96a4-193ebaf740e2)
+
+
+
 
 
 

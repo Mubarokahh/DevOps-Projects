@@ -93,10 +93,15 @@ In this project we will enhance our Tooling Website solution by adding a Load Ba
     ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/019cd22a-2b52-4c2c-9300-fe8714bff089)
 
 
-* Restart Apache2
+ * Restart Apache2
 
-  sudo systemctl restart apache2
+  `sudo systemctl restart apache2`
 
+  ## Sidenote
+ 
+*  In project 7, /var/log/httpd was mounted from  Web Servers to the NFS server – unmount them and make sure that each Web Server has its own log directory
+
+   `sudo umount /var/log/httpd`
 
  
 

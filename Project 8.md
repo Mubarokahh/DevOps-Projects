@@ -112,6 +112,59 @@ In this project we will enhance our Tooling Website solution by adding a Load Ba
 
   ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/97fb4b40-373a-42b2-b3ad-cf3eb0a0c25a)
 
+
+  * Try to refresh your browser page http://<Load-Balancer-Public-IP-Address-or-Public-DNS-Name>/index.php several times and make sure that both servers receive HTTP GET requests from your LB – new records must appear in each server’s log file. The number of requests to each server will be approximately the same since we set loadfactor to the same value for both servers – it means that traffic will be disctributed evenly between them.
+  * If everything is configured correctly – your users will not even notice that their requests are served by more than one server
+ 
+    ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/8ca3e317-8cf8-4cab-a4d1-7f2ac925c100)
+
+
+    ##  Configure Local DNS Names Resolution
+
+    Sometimes it is tedious to remember and switch between IP addresses, especially if you have a lot of servers under your management.
+What we can do, is to configure local domain name resolution. The easiest way is to use /etc/hosts file, although this approach is not very scalable, but it is very easy to configure and shows the concept well. So let us configure IP address to domain name mapping for our LB.
+
+  * Open this file on loadbalance server
+    
+      `sudo vi /etc/hosts`
+    
+  * Add 2 records into this file with Local IP address and arbitrary name for both of your Web Servers
+ 
+   `<WebServer1-Private-IP-Address> Web1`
+   `<WebServer2-Private-IP-Address> Web2`
+
+  ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/dcfe14e8-ca6f-4d75-8afa-c69d54a92dc1)
+
+  * Update the load balancer config file with those names instead of IP address:
+  
+    `sudo vi /etc/apache2/sites-available/000-default.conf`
+
+    `BalancerMember http://Web1:80 loadfactor=5 timeout=1`
+    `BalancerMember http://Web2:80 loadfactor=5 timeout=1`
+    
+  ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/45bb37e5-03d7-4c5a-b63a-05bf8b3a8088)
+
+  * You can try to curl your Web Servers from LB locally
+ 
+   ` curl http://Web1 `
+
+  ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/6f658d02-c905-4819-b8a7-21039c103303)
+
+
+    `curl http://Web2`
+
+  ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/fdb7caed-ccd3-4f93-a509-c335d2839efe)
+
+  ## Remember: This is only internal configuration and it is also local to your LB server, these names will neither be ‘resolvable’ from other servers internally nor from the Internet.
+
+  Now your set up looks like this
+
+  ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/966fc839-fc76-413c-8cd0-946507a034fc)
+
+
+
+
+
    
 
  

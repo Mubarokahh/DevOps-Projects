@@ -158,6 +158,7 @@ What we can do, is to configure local domain name resolution. The easiest way is
   ## Remember: This is only internal configuration and it is also local to your LB server, these names will neither be ‘resolvable’ from other servers internally nor from the Internet.
 
   Now your set up looks like this
+  
 
   ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/966fc839-fc76-413c-8cd0-946507a034fc)
 

@@ -93,15 +93,26 @@ In this project we will enhance our Tooling Website solution by adding a Load Ba
     ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/019cd22a-2b52-4c2c-9300-fe8714bff089)
 
 
- * Restart Apache2
+  * Restart Apache2
 
   `sudo systemctl restart apache2`
 
+  * Verify that our configuration works – try to access your LB’s public IP address or Public DNS name from your browse
+
+   `http://<Load-Balancer-Public-IP-Address-or-Public-DNS-Name>/index.php`
+
+    ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/a295953c-c6ce-47a8-b534-8dd78595ceb9)
+  
   ## Sidenote
+
  
-*  In project 7, /var/log/httpd was mounted from  Web Servers to the NFS server – unmount them and make sure that each Web Server has its own log directory
+  *  In project 7, /var/log/httpd was mounted from  Web Servers to the NFS server – unmount them and make sure that each Web Server has its own log directory
 
    `sudo umount /var/log/httpd`
+
+  ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/97fb4b40-373a-42b2-b3ad-cf3eb0a0c25a)
+
+   
 
  
 

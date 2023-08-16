@@ -97,6 +97,44 @@ In this part, you will learn how to configure a simple Jenkins job/project (thes
 
 * To connect your GitHub repository, you will need to provide its URL, you can copy from the repository itself
 
+  ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/87577b65-f5f1-4bb8-a8a9-2466f8748dbf)
+
+* In configuration of your Jenkins freestyle project choose Git repository, provide there the link to your Tooling GitHub repository and credentials (user/password) so Jenkins could access files in the repositorY.
+
+  ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/9364534a-5b6b-4277-bf92-de5585c1ea2a)
+
+* Save the configuration and let us try to run the build. For now we can only do it manually.
+Click “Build Now” button, if you have configured everything correctly, the build will be successfull and you will see it under #1
+
+![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/d2dd0cf1-d723-4028-9180-bf2fbac3bf90)
+
+* You can open the build and check in “Console Output” if it has run successfully.
+
+  ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/ef2f5804-0314-426f-9657-be84512b3628)
+
+* Click “Configure” your job/project and add these two configurations
+
+  ** Configure triggering the job from GitHub webhook
+
+  On the Build Triggers section, selecting GitHub hook trigger for GITScm polling
+
+  ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/aef83315-671e-4cbb-8f13-ace84f210ca1)
+
+  * And on the Post-build Actions, click on Add post-build action and selecting Archive the artifacts to archive all the files resulted from the build
+ 
+    ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/11a25cf4-1e55-4270-8d85-372b21abaf45)
+
+
+  * Then going to the tooling repository on my Github account and making a change in the ReadMe.md file and pushing the change to the master branch
+ 
+  * Going back to Jenkins web console to confirm that a new build has been triggered automatically
+
+
+
+
+
+
+
 
 
 

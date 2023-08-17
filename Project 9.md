@@ -168,9 +168,6 @@ Test the configuration and make sure the connection returns Success. Remember, t
    ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/d642771d-dbd4-4691-879c-317c1c1af7d0)
 
 
-  *  To make sure that the files in /mnt/apps have been updated – connect via SSH/Putty to your NFS server and check README.MD file
-
-   `cat /mnt/apps/README.md`
 
 
 

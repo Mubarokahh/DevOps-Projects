@@ -20,11 +20,11 @@ Here is how your updated architecture will look like upon competition of this pr
 
 ## Install and configure Jenkins Server
 
- * Create an AWS EC2 server based on Ubuntu Server 20.04 LTS and name it “Jenkins”
+  * Create an AWS EC2 server based on Ubuntu Server 20.04 LTS and name it “Jenkins”
 
   ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/53f905fb-9b39-40e3-a592-e4467f48f5cf)
 
- * Install JDK (since Jenkins is a Java-based application)
+  * Install JDK (since Jenkins is a Java-based application)
 
    `sudo apt update`
 
@@ -50,9 +50,9 @@ Here is how your updated architecture will look like upon competition of this pr
    ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/2d18bd4f-8120-449f-8308-644027015a0d)
 
 
-  * By default Jenkins server uses TCP port 8080 – open it by creating a new Inbound Rule in your EC2 Security Group
+   * By default Jenkins server uses TCP port 8080 – open it by creating a new Inbound Rule in your EC2 Security Group
 
-  * Perform initial Jenkins setup
+   * Perform initial Jenkins setup
     
       From your browser access
 
@@ -62,11 +62,11 @@ Here is how your updated architecture will look like upon competition of this pr
 
     ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/e185ebe3-57bc-4fc5-99ed-b294f8dacb3f)
 
-  * Retrieve the password from your server running
+   * Retrieve the password from your server running
 
      `sudo cat /var/lib/jenkins/secrets/initialAdminPassword`
 
- * Then you will be asked which plugins to install – choose suggested plugins.
+   * Then you will be asked which plugins to install – choose suggested plugins.
 
  ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/e1259799-1017-49e1-b77d-61a995c32337)
 
@@ -91,49 +91,72 @@ In this part, you will learn how to configure a simple Jenkins job/project (thes
 
 ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/55b10faf-e7e7-471b-8b9e-30420977e89c)
 
-* Go to Jenkins web console, click “New Item” and create a “Freestyle project”
+   * Go to Jenkins web console, click “New Item” and create a “Freestyle project”
 
 ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/31cbc3a1-d0fb-40ef-8d8e-c1895c817791)
 
-* To connect your GitHub repository, you will need to provide its URL, you can copy from the repository itself
+   * To connect your GitHub repository, you will need to provide its URL, you can copy from the repository itself
 
   ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/87577b65-f5f1-4bb8-a8a9-2466f8748dbf)
 
-* In configuration of your Jenkins freestyle project choose Git repository, provide there the link to your Tooling GitHub repository and credentials (user/password) so Jenkins could access files in the repositorY.
+   * In configuration of your Jenkins freestyle project choose Git repository, provide there the link to your Tooling GitHub repository and credentials (user/password) so Jenkins could access files in the repositorY.
 
   ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/9364534a-5b6b-4277-bf92-de5585c1ea2a)
 
-* Save the configuration and let us try to run the build. For now we can only do it manually.
+   * Save the configuration and let us try to run the build. For now we can only do it manually.
 Click “Build Now” button, if you have configured everything correctly, the build will be successfull and you will see it under #1
 
 ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/d2dd0cf1-d723-4028-9180-bf2fbac3bf90)
 
-* You can open the build and check in “Console Output” if it has run successfully.
+    * You can open the build and check in “Console Output” if it has run successfully.
 
   ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/ef2f5804-0314-426f-9657-be84512b3628)
 
-* Click “Configure” your job/project and add these two configurations
+    * Click “Configure” your job/project and add these two configurations
 
-  ** Configure triggering the job from GitHub webhook
+    ** Configure triggering the job from GitHub webhook
 
   On the Build Triggers section, selecting GitHub hook trigger for GITScm polling
 
   ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/aef83315-671e-4cbb-8f13-ace84f210ca1)
 
-  * And on the Post-build Actions, click on Add post-build action and selecting Archive the artifacts to archive all the files resulted from the build
+    * And on the Post-build Actions, click on Add post-build action and selecting Archive the artifacts to archive all the files resulted from the build
  
     ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/11a25cf4-1e55-4270-8d85-372b21abaf45)
 
 
-  * Then going to the tooling repository on my Github account and making a change in the ReadMe.md file and pushing the change to the master branch
+    * Then going to the tooling repository on my Github account and making a change in the ReadMe.md file and pushing the change to the master branch
  
-  * Going back to Jenkins web console to confirm that a new build has been triggered automatically
-  * 
+    * Going back to Jenkins web console to confirm that a new build has been triggered automatically
+    
 
-  * To locate the artifacts on the Jenkins server
+    * To locate the artifacts on the Jenkins server
      ls /var/lib/jenkins/jobs/tooling_github/builds/<build_number>/archive/
 
     ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/09ec1b2d-9324-4406-95c2-0b153916483a)
+
+    ## Configure Jenkins to copy files to NFS server via SSH
+
+    Now we have our artifacts saved locally on Jenkins server, the next step is to copy them to our NFS server to /mnt/apps directory.
+
+    Jenkins is a highly extendable application and there are 1400+ plugins available. We will need a plugin that is called “Publish Over SSH”.
+
+     * Install “Publish Over SSH” plugin.
+   
+      ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/72eb5eaf-dfaf-4093-b235-84534fd242b1)
+
+      ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/260dcc50-cbcc-481b-9a4b-7306f3139b34)
+
+     * Configure the publish over ssh on the Manage Jenkins > Configure system settings to connect to the NFS server and setting the remote directory path to the      /mnt/opt. Using the NFS server Private IP as the Hostname:
+
+     Test the configuration and make sure the connection returns Success. Remember, that TCP port 22 on NFS server must be open to receive SSH connections.
+
+     ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/5dcbe07d-4a4f-490a-8dc1-b43fcf6b70a9)
+
+
+
+
+
 
 
 

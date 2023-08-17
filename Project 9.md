@@ -128,6 +128,14 @@ Click “Build Now” button, if you have configured everything correctly, the b
   * Then going to the tooling repository on my Github account and making a change in the ReadMe.md file and pushing the change to the master branch
  
   * Going back to Jenkins web console to confirm that a new build has been triggered automatically
+  * 
+
+  * To locate the artifacts on the Jenkins server
+     ls /var/lib/jenkins/jobs/tooling_github/builds/<build_number>/archive/
+
+    ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/09ec1b2d-9324-4406-95c2-0b153916483a)
+
+
 
 
 

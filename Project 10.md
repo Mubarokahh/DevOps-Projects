@@ -63,6 +63,15 @@ server {
 `
  ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/371e56bf-b9f5-4174-99a2-db0d60fd77b1)
 
+* Restart Nginx and make sure the service is up and running
+
+   `sudo systemctl restart nginx`
+
+   `sudo systemctl status nginx`
+
+  ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/cc392440-1ae4-4ba3-87f4-9d1a1653ded6)
+
+
 
 
 

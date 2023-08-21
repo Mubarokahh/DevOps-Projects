@@ -71,6 +71,19 @@ server {
 
   ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/cc392440-1ae4-4ba3-87f4-9d1a1653ded6)
 
+  ## Register a new domain name and configure secured connection using SSL/TLS certificates
+
+  * Register a new domain name with any registrar of your choice in any domain zone (e.g. .com, .net, .org, .edu, .info, .xyz or any other)
+  * Assign an Elastic IP to your Nginx LB server and associate your domain name with this Elastic IP
+  * Update A record in your registrar to point to Nginx LB using Elastic IP address
+ 
+  * Configure nginx to recognize my new domain name:
+    
+     `sudo vi /etc/nginx/nginx.conf`
+ 
+    ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/96ac6a2d-d76d-4f44-8c39-0e806a114fb1)
+
+
 
 
 

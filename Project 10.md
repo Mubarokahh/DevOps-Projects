@@ -91,11 +91,19 @@ server {
 
     ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/b316b56a-5c3c-4f23-9ba8-4ca5cd2fe2b0)
     
-  * Install certbot
+  * Install certbot to be  used to request for SSL/TLS certificate
     
     `sudo snap install --classic certbot`
     
    ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/c9ec1b6a-ec06-49ee-a04d-3729e26de52a)
+
+  * create a Request your certificate for the domain name.
+ 
+    `sudo ln -s /snap/bin/certbot /usr/bin/certbot`
+
+  * Selecting domain name
+
+    `sudo certbot --nginx`
 
 
 

@@ -83,6 +83,22 @@ server {
  
     ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/96ac6a2d-d76d-4f44-8c39-0e806a114fb1)
 
+  ## Install certbot and request for an SSL/TLS certificate
+
+  * Make sure snapd service is active and running to install snapd
+ 
+    `sudo systemctl status snapd`
+
+    ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/b316b56a-5c3c-4f23-9ba8-4ca5cd2fe2b0)
+    
+  * Install certbot
+    
+    `sudo snap install --classic certbot`
+    
+   ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/c9ec1b6a-ec06-49ee-a04d-3729e26de52a)
+
+
+
 
 
 

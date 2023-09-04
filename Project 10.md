@@ -111,6 +111,9 @@ server {
 
    You shall be able to access your website by using HTTPS protocol (that uses TCP port 443) and see a padlock pictogram in your browser’s search string
 
+   ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/9abf5ef6-3ee8-4517-b794-32e24c223952)
+
+
 
 
 

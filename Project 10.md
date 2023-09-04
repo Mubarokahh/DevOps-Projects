@@ -123,7 +123,27 @@ server {
 
 By default, LetsEncrypt certificate is valid for 90 days, so it is recommended to renew it at least every 60 days or more frequently
 
-sudo certbot renew --dry-run
+  'sudo certbot renew --dry-run'
+
+![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/4462d48f-ab3c-4d25-9350-aaad2a2ad973)
+
+
+SIDENOTE: Best practice is to have a scheduled job that to run renew command periodically. Let us configure a cronjob to run the command twice a day
+
+* To do so, edit the crontab file with the following command:
+
+ crontab -e
+
+![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/35cb1a9f-e374-4568-8cb8-d3f59656d31f)
+
+* Add this line:
+
+  * */12 * * *   root /usr/bin/certbot renew > /dev/null 2>&1
+ 
+    ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/303c9f96-cdf0-4d3f-86a7-36761c2159de)
+
+
+
 
 
 

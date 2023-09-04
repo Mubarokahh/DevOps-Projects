@@ -105,6 +105,13 @@ server {
 
     `sudo certbot --nginx`
 
+    ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/ed3acc07-3f5f-4a41-a1be-cf815540f5a1)
+
+ * Test secured access to your Web Solution by trying to reach https://<your-domain-name.com>
+
+   You shall be able to access your website by using HTTPS protocol (that uses TCP port 443) and see a padlock pictogram in your browser’s search string
+
+
 
 
 

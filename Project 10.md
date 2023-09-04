@@ -119,6 +119,12 @@ server {
 
 ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/753769cc-d455-4209-b7bb-cbf5ce30b322)
 
+* Setting up periodical renewal of your SSL/TLS certificate
+
+By default, LetsEncrypt certificate is valid for 90 days, so it is recommended to renew it at least every 60 days or more frequently
+
+sudo certbot renew --dry-run
+
 
 
 

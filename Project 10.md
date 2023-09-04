@@ -105,13 +105,19 @@ server {
 
     `sudo certbot --nginx`
 
-    ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/ed3acc07-3f5f-4a41-a1be-cf815540f5a1)
+  ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/ed3acc07-3f5f-4a41-a1be-cf815540f5a1)
 
  * Test secured access to your Web Solution by trying to reach https://<your-domain-name.com>
 
    You shall be able to access your website by using HTTPS protocol (that uses TCP port 443) and see a padlock pictogram in your browser’s search string
 
-   ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/9abf5ef6-3ee8-4517-b794-32e24c223952)
+ ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/9abf5ef6-3ee8-4517-b794-32e24c223952)
+
+* Test secured access to your Web Solution by trying to reach https://<your-domain-name.com>
+
+* Click on the padlock icon and you can see the details of the certificate issued for your website.
+
+![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/753769cc-d455-4209-b7bb-cbf5ce30b322)
 
 
 

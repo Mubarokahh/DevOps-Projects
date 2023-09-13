@@ -8,5 +8,27 @@ The diagram below the Virtual Private Network (VPC) is divided into two subnets 
 
 ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/c8232dfc-1dd1-4cb3-a235-500ba4436471)
 
+## Install and configure ansible on EC2 instance
+Update the name tag of the from Jenkins EC2 instance to Jenkins-Ansible.This server will be used to run playbook.
+
+![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/d4e6a769-06e9-44f4-9a79-b5754c97c4de)
+
+* To install ansible:
+  
+ `sudo apt update`
+ 
+`sudo apt install ansible`
+
+![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/66fecfc1-4106-4a59-b4f5-3bfbecf399c8)
+
+* Check the version of the ansible installed
+
+  `ansible --version`
+
+
+
+
+
+
 
 

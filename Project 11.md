@@ -27,6 +27,8 @@ Update the name tag of the from Jenkins EC2 instance to Jenkins-Ansible.This ser
 
   ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/bb97169d-ec1a-4ac6-a32c-d2981fe58072)
 
+* Creating a new repository named ansible-config-mgt in my github account 
+
 
 
 

@@ -8,3 +8,5 @@ The diagram below the Virtual Private Network (VPC) is divided into two subnets 
 
 ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/c8232dfc-1dd1-4cb3-a235-500ba4436471)
 
+
+

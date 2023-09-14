@@ -90,6 +90,12 @@ A Visual Studio Code is an open-source code editor that integrates with popular 
 * Checkout the newly created feature branch to your local machine and start building your code and directory structure
 
 * Create a directory and name it playbooks – it will be used to store all your playbook files
+  
+* Create a directory and name it inventory – it will be used to keep your hosts organised
+
+* Within the playbooks folder, create the first playbook, and name it common.yml
+
+* Within the inventory folder, create an inventory file (.yml) for each environment (Development, Staging Testing and Production) dev, staging, uat, and prod respectively.
 
   
 

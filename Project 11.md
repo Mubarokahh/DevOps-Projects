@@ -83,7 +83,17 @@ A Visual Studio Code is an open-source code editor that integrates with popular 
 ## Ansible Development
 
 * in the Ansible-config-mgt repository,create new branch to be used for the development of a new feature.I named the branch **Feature-11**
+
+  
 ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/61541590-538c-459d-b5ff-3469137a9731)
+
+* Checkout the newly created feature branch to your local machine and start building your code and directory structure
+
+* Create a directory and name it playbooks – it will be used to store all your playbook files
+
+  
+
+
 
   
 

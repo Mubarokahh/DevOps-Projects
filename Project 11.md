@@ -99,18 +99,127 @@ A Visual Studio Code is an open-source code editor that integrates with popular 
 
 * Save below inventory structure in the inventory/dev file to start configuring your development servers. Ensure to replace the IP addresses according to your own setup
 
- ``` [nfs]
+ ` [nfs]
 <NFS-Server-Private-IP-Address> ansible_ssh_user='ec2-user'
-
 [webservers]
 <Web-Server1-Private-IP-Address> ansible_ssh_user='ec2-user'
 <Web-Server2-Private-IP-Address> ansible_ssh_user='ec2-user'
-
 [db]
 <Database-Private-IP-Address> ansible_ssh_user='ec2-user' 
-
 [lb]
-<Load-Balancer-Private-IP-Address> ansible_ssh_user='ubuntu' ```
+<Load-Balancer-Private-IP-Address> ansible_ssh_user='ubuntu' `
+
+![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/039d3f03-2c7d-43c4-935c-5655b1feef4a)
+
+
+## Implementing SSH-Agent On Jenkins-Ansible Server
+
+* Ansible uses TCP port 22 by default,which means it needs to ssh into target servers **nfs, db, webservers, lb**
+
+* Importing the private key into the ssh-agent with the command below
+  
+	`eval ssh-agent -s`
+ 
+  	`ssh-add <path-to-private-key>`
+
+* ssh into the Jenkins-Ansible server using ssh-agent
+
+  `ssh -A ubuntu@public-ip`
+  
+  ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/7242bbc1-29bd-48c9-9e9e-18de9f2e3bac)
+
+* Confirm the key has been added with the command below, you should see the name of your key
+
+  `ssh-add -l`
+  
+  ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/e34142d5-2051-421d-a9f0-082964251e7c)
+
+
+ ## CREATE A COMMON PLAYBOOK
+
+ * Input the following code to the common.yml file .
+
+```
+- name: update web and nfs aservers
+  hosts: webservers, nfs
+  remote_user: ec2-user
+  become: yes
+  become_user: root
+  tasks:
+    - name: ensure wireshark is at the latest version
+      yum:
+        name: wireshark
+        state: latest
+
+- name: update LB server
+  hosts: lb, db
+  remote_user: ubuntu
+  become: yes
+  become_user: root
+  tasks:
+    - name: Update apt repo
+      apt: 
+        update_cache: yes
+
+    - name: ensure wireshark is at the latest version
+      apt:
+        name: wireshark
+        state: latest
+
+- name: For all servers
+  hosts: all
+  remote_user: root
+  become: yes
+  tasks:
+    - name: Set timezone to Africa/Lagos
+      community.general.timezone:
+        name: Africa/Lagos
+   
+    - name: Create a directory
+      ansible.builtin.file:
+        path: /etc/tmp/shell_folder
+        state: directory
+        mode: '0777'
+
+    - name: Create a file
+      ansible.builtin.file:
+        path: /etc/tmp/shell_folder/just_file.sh
+        state: touch
+        mode: '0777'
+        
+    - name: Execute a script
+      script: /etc/tmp/shell_folder/just_file.sh`
+```
+## Update git with the latest code
+
+* Commit code into git repository.use git commands to add, commit and push your branch to GitHub
+
+  `git status`
+
+  `git add <selected files>`
+
+  `git commit -m "commit message"`
+
+
+  ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/98ef829d-f7ad-4721-b9e7-d33dc74c01c2)
+
+* Create a Pull request (PR)
+* checkout from the feature branch into the master, and pull down the latest changes.
+
+![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/cb876740-5d59-4909-8284-2c040e747fde)
+
+## Run first Ansible test
+
+* Now, it is time to execute ansible-playbook command and verify if your playbook actually works:
+
+ `cd ansible-config-mgt`
+  
+ `ansible-playbook -i inventory/dev.yml playbooks/common.yml`
+
+  
+
+
+
 
   
 

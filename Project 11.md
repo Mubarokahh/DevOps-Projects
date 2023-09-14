@@ -215,6 +215,18 @@ A Visual Studio Code is an open-source code editor that integrates with popular 
  `cd ansible-config-mgt`
   
  `ansible-playbook -i inventory/dev.yml playbooks/common.yml`
+ 
+![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/03f5669a-4225-44a5-905b-9e4b7940a172)
+
+* Verify  if wireshark has been installed by running which wireshark or wireshark --version
+
+  ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/eafb5400-4698-448b-ae60-bdbe96fe9dd9)
+
+In conclusion, the new architecture look like this 
+
+![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/6c6daa11-2a11-43b4-a3e4-2d128457271a)
+
+
 
   
 

@@ -82,15 +82,20 @@ Because artifacts on the Jenkins server change directory with each build. To mai
       purge: yes
       autoclean: yes```
 
-* update site.yml with - import_playbook: ../static-assignments/common-del.yml instead of common.yml
+* Update site.yml with - import_playbook: ../static-assignments/common-del.yml instead of common.yml
 
 ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/c4b1790a-4e48-4746-954a-82b549ae31d0)
 
-*  Run ansible-playbook command against the dev environment
+* Run ansible-playbook command against the dev environment
 
 ``` cd /home/ubuntu/ansible-config-mgt/
 
 ansible-playbook -i inventory/dev.yml playbooks/site.yaml```
+
+![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/3b4bdc65-86db-4065-bc51-194f988e7a57)
+
+* Configure UAT Webservers with a role ‘Webserver’
+
 
       
 

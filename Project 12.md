@@ -134,8 +134,12 @@ Because artifacts on the Jenkins server change directory with each build. To mai
 ## The Webserver Role folder structure
 
   ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/31cb1428-e4ca-457c-95fa-07013ed87182)
- 
 
+```[uat-webservers]
+<Web1-UAT-Server-Private-IP-Address> ansible_ssh_user='ec2-user' 
+
+<Web2-UAT-Server-Private-IP-Address> ansible_ssh_user='ec2-user' 
+ ```
 
 
 

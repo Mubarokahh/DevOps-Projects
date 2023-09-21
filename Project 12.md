@@ -56,7 +56,7 @@ Because artifacts on the Jenkins server change directory with each build. To mai
 * Create another playbook under static-assignments and name it common-del.yml.
 * Configure the deletion of wireshark utility in this playbook
 
-```---
+---
 - name: update web, nfs and db servers
   hosts: webservers, nfs
   remote_user: ec2-user
@@ -80,11 +80,13 @@ Because artifacts on the Jenkins server change directory with each build. To mai
       state: absent
       autoremove: yes
       purge: yes
-      autoclean: yes```
+      autoclean: yes
+
+
 
 * Update site.yml with - import_playbook: ../static-assignments/common-del.yml instead of common.yml
 
-![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/c4b1790a-4e48-4746-954a-82b549ae31d0)
+ ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/c4b1790a-4e48-4746-954a-82b549ae31d0)
 
 * Run ansible-playbook command against the dev environment
 
@@ -92,7 +94,7 @@ Because artifacts on the Jenkins server change directory with each build. To mai
 
 ansible-playbook -i inventory/dev.yml playbooks/site.yaml```
 
-![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/3b4bdc65-86db-4065-bc51-194f988e7a57)
+
 
 * Configure UAT Webservers with a role ‘Webserver’
 

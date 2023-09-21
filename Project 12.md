@@ -141,7 +141,53 @@ Because artifacts on the Jenkins server change directory with each build. To mai
 <Web2-UAT-Server-Private-IP-Address> ansible_ssh_user='ec2-user' 
  ```
 
+* To make ansible locate the role directory, editing the role section and specifying the role path in the ansible.cfg file
 
+ `sudo vi /etc/ansible/ansible.cfg`
+
+* Setting up the task file of the webserver role and adding the following task in the main.yml
+
+  `sudo vi ansible-config-artifact/playbooks/role/webserver/task/main.yml`
+
+`` ` ---
+- name: install apache
+  become: true
+  ansible.builtin.yum:
+    name: "httpd"
+    state: present
+  
+- name: install git
+  become: true
+  ansible.builtin.yum:
+    name: "git"
+    state: present
+  
+- name: clone a repo
+  become: true
+  ansible.builtin.git:
+    repo: https://github.com/Mubarokahh/tooling.git
+    dest: /var/www/html
+    force: yes
+  
+- name: copy html content to one level up
+  become: true
+  command: cp -r /var/www/html/html/ /var/www/
+  
+- name: Start service httpd, if not started
+  become: true
+  ansible.builtin.service:
+    name: httpd
+    state: started
+  
+- name: recursively remove /var/www/html/html/ directory
+  become: true
+  ansible.builtin.file:
+    path: /var/www/html/html
+    state: absent```
+
+  ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/a6c0871b-e469-4987-840d-87635101ee33)
+
+    
 
       
 

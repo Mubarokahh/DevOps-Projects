@@ -149,7 +149,7 @@ Because artifacts on the Jenkins server change directory with each build. To mai
 
   `sudo vi ansible-config-artifact/playbooks/role/webserver/task/main.yml`
 
-`` ` ---
+``` ---
 - name: install apache
   become: true
   ansible.builtin.yum:

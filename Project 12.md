@@ -43,9 +43,9 @@ Because artifacts on the Jenkins server change directory with each build. To mai
 
 * Inside site.yml file, import common.yml playbook.
 
- ```---
+ ---
 - hosts: all
-- import_playbook: ../static-assignments/common.yml```
+- import_playbook: ../static-assignments/common.yml
 
   ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/74a1cc21-c5ef-4ea9-8a3f-a38839af15b2)
 
@@ -90,9 +90,12 @@ Because artifacts on the Jenkins server change directory with each build. To mai
 
 * Run ansible-playbook command against the dev environment
 
-``` cd /home/ubuntu/ansible-config-mgt/
+ cd /home/ubuntu/ansible-config-mgt/
 
-ansible-playbook -i inventory/dev.yml playbooks/site.yaml```
+ansible-playbook -i inventory/dev.yml playbooks/site.yaml
+
+ ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/6182fb2c-be15-4c92-9efc-0420b2e7b475)
+
 
 
 

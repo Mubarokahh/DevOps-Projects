@@ -131,6 +131,12 @@ Because artifacts on the Jenkins server change directory with each build. To mai
   ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/5b0157a2-2899-43d7-afa6-1cc48707ac5c)
 
 
+## The Webserver Role folder structure
+
+  ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/31cb1428-e4ca-457c-95fa-07013ed87182)
+ 
+
+
 
 
       

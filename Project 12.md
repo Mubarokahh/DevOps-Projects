@@ -148,44 +148,61 @@ Because artifacts on the Jenkins server change directory with each build. To mai
 * Setting up the task file of the webserver role and adding the following task in the main.yml
 
   `sudo vi ansible-config-artifact/playbooks/role/webserver/task/main.yml`
-
-``` ---
+  
+`` ---
 - name: install apache
   become: true
   ansible.builtin.yum:
     name: "httpd"
     state: present
-  
 - name: install git
   become: true
   ansible.builtin.yum:
     name: "git"
     state: present
-  
 - name: clone a repo
   become: true
   ansible.builtin.git:
     repo: https://github.com/Mubarokahh/tooling.git
     dest: /var/www/html
     force: yes
-  
 - name: copy html content to one level up
   become: true
   command: cp -r /var/www/html/html/ /var/www/
-  
 - name: Start service httpd, if not started
   become: true
   ansible.builtin.service:
     name: httpd
     state: started
-  
 - name: recursively remove /var/www/html/html/ directory
   become: true
   ansible.builtin.file:
     path: /var/www/html/html
     state: absent```
 
-  ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/a6c0871b-e469-4987-840d-87635101ee33)
+
+
+  ## The above tasks tanslate to the following;
+ * Install and configure Apache (httpd service)
+   
+ * Clone Tooling website from GitHub https://github.com/<your-name>/tooling.git.
+   
+ * Ensure the tooling website code is deployed to /var/www/html on each of 2 UAT Web servers.
+   
+ * Make sure httpd service is started
+
+
+  * ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/c1320b79-d003-44cc-a6ff-32a3b7e6edbd)
+
+  * Within the static-assignments folder, creating a new assignment for uat-webservers uat-webservers.yml. This is where the role will be referenced.
+
+  ` `` ---
+- hosts: uat-webservers
+  roles:
+     - webserver```
+
+* ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/edb3caa0-a553-4045-9734-d15db21aadb5)
+
 
     
 

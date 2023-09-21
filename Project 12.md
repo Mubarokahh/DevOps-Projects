@@ -215,6 +215,10 @@ Because artifacts on the Jenkins server change directory with each build. To mai
 
  ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/f0afdd59-957d-4a2e-a8df-8b217c410114)
 
+ ## Commit & Test The changes
+
+ `sudo ansible-playbook -i /home/ubuntu/ansible-config-mgt/inventory/uat.yml /home/ubuntu/ansible-config-mgt/playbooks/site.yaml`
+
 
     
 

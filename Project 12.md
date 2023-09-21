@@ -43,10 +43,10 @@ Because artifacts on the Jenkins server change directory with each build. To mai
 
 * Inside site.yml file, import common.yml playbook.
 
- ---
+` ---
 - hosts: all
 - import_playbook: ../static-assignments/common.yml
-
+`
   ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/74a1cc21-c5ef-4ea9-8a3f-a38839af15b2)
 
 * The ansible-config-mgt folder structure
@@ -56,10 +56,12 @@ Because artifacts on the Jenkins server change directory with each build. To mai
 * Create another playbook under static-assignments and name it common-del.yml.
 * Configure the deletion of wireshark utility in this playbook
 
+
+  
 ---
-- name: update web, nfs and db servers
-  hosts: webservers, nfs
-  remote_user: ec2-user
+   - name: update web, nfs and db servers
+    hosts: webservers, nfs
+    remote_user: ec2-user
   become: yes
   become_user: root
   tasks:
@@ -84,22 +86,46 @@ Because artifacts on the Jenkins server change directory with each build. To mai
 
 
 
+
+
+
 * Update site.yml with - import_playbook: ../static-assignments/common-del.yml instead of common.yml
 
  ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/c4b1790a-4e48-4746-954a-82b549ae31d0)
 
 * Run ansible-playbook command against the dev environment
 
- cd /home/ubuntu/ansible-config-mgt/
+` cd /home/ubuntu/ansible-config-mgt/`
 
-ansible-playbook -i inventory/dev.yml playbooks/site.yaml
+`ansible-playbook -i inventory/dev.yml playbooks/site.yaml`
 
  ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/6182fb2c-be15-4c92-9efc-0420b2e7b475)
 
 
 
 
-* Configure UAT Webservers with a role ‘Webserver’
+## Configure UAT Webservers with a role ‘Webserver’
+
+* Launch 2 fresh EC2 instances using RHEL 8 image, we will use them as our uat servers,namely Web1-UAT and Web2-UAT
+
+  ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/1a106b5c-2462-40e9-ae95-ffe56d53c59f)
+  
+* Creating a role:
+   ** Create a directory called roles,relative to the playbook file or in /etc/ansible/ directory.
+
+## NOTE:
+
+ There are two ways how you can create this folder structure:
+
+* Use an Ansible utility called ansible-galaxy inside ansible-config-mgt/roles directory (you need to create roles directory upfront)
+
+  `mkdir roles`
+`cd roles`
+`ansible-galaxy init webserver`
+
+
+* Create the directory/files structure manually
+
 
 
       

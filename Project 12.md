@@ -37,6 +37,66 @@ Because artifacts on the Jenkins server change directory with each build. To mai
 
 * Create a new folder in root of the repository and name it static-assignments. The static-assignments folder is where all other children playbooks will be stored
 
+* Move common.yml file into the newly created static-assignments folder.
+
+![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/f2f8c289-3446-4abf-9f35-3010631f390e)
+
+* Inside site.yml file, import common.yml playbook.
+
+ ```---
+- hosts: all
+- import_playbook: ../static-assignments/common.yml```
+
+  ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/74a1cc21-c5ef-4ea9-8a3f-a38839af15b2)
+
+* The ansible-config-mgt folder structure
+
+  ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/fc1e1b2d-5817-457a-a39b-94f150bdaaaa)
+
+* Create another playbook under static-assignments and name it common-del.yml.
+* Configure the deletion of wireshark utility in this playbook
+
+```---
+- name: update web, nfs and db servers
+  hosts: webservers, nfs
+  remote_user: ec2-user
+  become: yes
+  become_user: root
+  tasks:
+  - name: delete wireshark
+    yum:
+      name: wireshark
+      state: removed
+
+- name: update LB server
+  hosts: lb, db
+  remote_user: ubuntu
+  become: yes
+  become_user: root
+  tasks:
+  - name: delete wireshark
+    apt:
+      name: wireshark-qt
+      state: absent
+      autoremove: yes
+      purge: yes
+      autoclean: yes```
+
+* update site.yml with - import_playbook: ../static-assignments/common-del.yml instead of common.yml
+
+![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/c4b1790a-4e48-4746-954a-82b549ae31d0)
+
+*  Run ansible-playbook command against the dev environment
+
+``` cd /home/ubuntu/ansible-config-mgt/
+
+ansible-playbook -i inventory/dev.yml playbooks/site.yaml```
+
+      
+
+  
+
+
 
 
 

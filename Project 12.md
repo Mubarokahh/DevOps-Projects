@@ -120,11 +120,16 @@ Because artifacts on the Jenkins server change directory with each build. To mai
 * Use an Ansible utility called ansible-galaxy inside ansible-config-mgt/roles directory (you need to create roles directory upfront)
 
   `mkdir roles`
+  
 `cd roles`
+
 `ansible-galaxy init webserver`
 
 
 * Create the directory/files structure manually
+
+  ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/5b0157a2-2899-43d7-afa6-1cc48707ac5c)
+
 
 
 

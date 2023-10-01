@@ -196,12 +196,14 @@ Because artifacts on the Jenkins server change directory with each build. To mai
 
   * Within the static-assignments folder, creating a new assignment for uat-webservers uat-webservers.yml. This is where the role will be referenced.
 
-  ``` ---
+`   ---
 - hosts: uat-webservers
   roles:
-     - webserver```
+     - webserver`
 
-* ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/edb3caa0-a553-4045-9734-d15db21aadb5)
+
+
+![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/edb3caa0-a553-4045-9734-d15db21aadb5)
 
 * Updating the site.yml file to be able to import uat-webservers role
 

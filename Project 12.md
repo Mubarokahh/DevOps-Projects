@@ -219,7 +219,52 @@ Because artifacts on the Jenkins server change directory with each build. To mai
 
  ## Commit & Test The changes
 
- `sudo ansible-playbook -i /home/ubuntu/ansible-config-mgt/inventory/uat.yml /home/ubuntu/ansible-config-mgt/playbooks/site.yaml`
+ `sudo ansible-playbook -i /home/ubuntu/ansible-config-mgt/inventory/uat.yml /home/ubuntu/ansible-config-mgt/playbooks/site.yml`
+
+ ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/5e72c9dd-4f59-4e74-9d5d-5ae65e0fd062)
+
+ * Testing the outcome of the configuration in one of the webservers
+
+  ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/0e4fc49f-68bf-48a7-b48f-7b1872d285dc)
+
+
+ * The configuration looks like this now
+
+   ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/2b505cb4-fe91-4191-9954-356645e59c4a)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ ## Error Encountered during this project
+ 
+* Permission denied (publickey,gssapi-keyex,gssapi-with-mic,password).", "unreachable": true}
+
+
+![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/268c30e6-46bf-4ba8-9785-dc0d5bebadd0)
+
+During the implementation of this project,I encountered the above error and this got me troubleshooting for quite a while.I found out that ansible was not able to locate the private key file leading to the permission denied error. I was able to solve this error by specifying the private key path in the uat-webserver.yml for ansible to locate.
+
+`ansible_ssh_private_key_file=/home/ubuntu/.ssh/id_rsa`
+
+![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/13fd016b-bba0-4c7b-b06b-208e73b12c68)
+
+
+
 
 
     

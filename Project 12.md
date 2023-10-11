@@ -43,10 +43,12 @@ Because artifacts on the Jenkins server change directory with each build. To mai
 
 * Inside site.yml file, import common.yml playbook.
 
-` ---
+```
+ ---
 - hosts: all
 - import_playbook: ../static-assignments/common.yml
-`
+
+```
   ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/74a1cc21-c5ef-4ea9-8a3f-a38839af15b2)
 
 * The ansible-config-mgt folder structure
@@ -57,7 +59,7 @@ Because artifacts on the Jenkins server change directory with each build. To mai
 * Configure the deletion of wireshark utility in this playbook
 
 
-  
+```  
 ---
    - name: update web, nfs and db servers
     hosts: webservers, nfs
@@ -83,10 +85,7 @@ Because artifacts on the Jenkins server change directory with each build. To mai
       autoremove: yes
       purge: yes
       autoclean: yes
-
-
-
-
+```
 
 
 * Update site.yml with - import_playbook: ../static-assignments/common-del.yml instead of common.yml
@@ -135,10 +134,12 @@ Because artifacts on the Jenkins server change directory with each build. To mai
 
   ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/31cb1428-e4ca-457c-95fa-07013ed87182)
 
-```[uat-webservers]
+```
+[uat-webservers]
 <Web1-UAT-Server-Private-IP-Address> ansible_ssh_user='ec2-user' 
 
-<Web2-UAT-Server-Private-IP-Address> ansible_ssh_user='ec2-user' 
+<Web2-UAT-Server-Private-IP-Address> ansible_ssh_user='ec2-user'
+
  ```
 
 * To make ansible locate the role directory, editing the role section and specifying the role path in the ansible.cfg file
@@ -149,7 +150,8 @@ Because artifacts on the Jenkins server change directory with each build. To mai
 
   `sudo vi ansible-config-artifact/playbooks/role/webserver/task/main.yml`
   
-`` ---
+```
+---
 - name: install apache
   become: true
   ansible.builtin.yum:
@@ -178,7 +180,9 @@ Because artifacts on the Jenkins server change directory with each build. To mai
   become: true
   ansible.builtin.file:
     path: /var/www/html/html
-    state: absent```
+    state: absent
+
+```
 
 
 
@@ -196,23 +200,27 @@ Because artifacts on the Jenkins server change directory with each build. To mai
 
   * Within the static-assignments folder, creating a new assignment for uat-webservers uat-webservers.yml. This is where the role will be referenced.
 
-`   ---
+```
+ ---
 - hosts: uat-webservers
   roles:
-     - webserver`
-
+     - webserver
+       
+```
 
 
 ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/edb3caa0-a553-4045-9734-d15db21aadb5)
 
 * Updating the site.yml file to be able to import uat-webservers role
 
- ```---
+ ```
+---
 - hosts: all
 - import_playbook: ../static-assignments/common.yml
 
 - hosts: uat-webservers
 - import_playbook: ../static-assignments/uat-webservers.yml
+
 ```
 
  ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/f0afdd59-957d-4a2e-a8df-8b217c410114)

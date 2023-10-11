@@ -258,12 +258,14 @@ Because artifacts on the Jenkins server change directory with each build. To mai
 
 
 
- ## Error Encountered during this project
+ ## Error Encountered during this project 
  
 * Permission denied (publickey,gssapi-keyex,gssapi-with-mic,password).", "unreachable": true}
 
 
 ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/268c30e6-46bf-4ba8-9785-dc0d5bebadd0)
+
+## The troubleshooting process
 
 During the implementation of this project,I encountered the above error and this got me troubleshooting for quite a while.I found out that ansible was not able to locate the private key file leading to the permission denied error. I was able to solve this error by specifying the private key path in the uat-webserver.yml for ansible to locate.
 

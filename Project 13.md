@@ -1,7 +1,9 @@
 # ANSIBLE DYNAMIC ASSIGNMENTS (INCLUDE) AND COMMUNITY ROLES
+
 ## Introduction 
   This project is a continuation of project 12.
-  In project 12,static assignment was explored using "imports" module. This project will be centered around dynamic assignments which uses "Include" module
+  
+  In project 12, static assignment was explored using "imports" module. This project will be centered around dynamic assignments which uses "Include" module
   
 ##  Introducing dynamic assignments into the existing structure
 * Creating a new folder in the https://github.com/Mubarokahh/ansible-config-mgt.git called 'DYNAMIC-ASSIGNMENTS'
@@ -85,6 +87,41 @@ git switch roles-feature
 
 ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/2882d9eb-98bd-4eeb-8d30-9123e089c5aa)
 
+![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/6988ca9b-e68d-4c58-b550-ef9569b44eff)
+
+* Updating the changes into GitHub
+
+```
+git add .
+git commit -m "Commit new role files into GitHub"
+git push --set-upstream origin roles-feature
+
+```
+
+![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/4744732f-d55e-4d86-97fa-91f7c511b9a8)
+
+## Implementing Load Balancer(Apache & Nginx) Roles
+* Two load-balancers are set up up which are APACHE and NGINX. Since both Nginx and Apache load balancer cannnot be used, a condition has to be addedto enable either one – this is where you can make use of variables.
+
+* Creating  apache role in the role directory
+  
+  `sudo ansible-galaxy init apache`
+
+* Creating nginx role in the role directory
+
+  `sudo ansible-galaxy init nginx`
+
+  ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/e6be869c-b7df-4cb9-a218-0e89ce1354cf)
+
+  ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/95c780bd-80c8-4c01-9ff9-79c07b80788b)
+
+* Declaring the following variable in the  defaults/main.yml file of both apache and nginx roles file which makes ansible to skip the roles during execution.
+
+
+
+
+
+
 
 
 ## Error Encountered during the implementation of this project
@@ -93,7 +130,7 @@ While trying to install the mysql in the `~/ansible-config-mgt/role`directory  u
 
 ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/591acf3d-60b5-48ae-b077-f290f73a7e47)
 
-* Troubleshooting Process
+## Troubleshooting Process
    Because I was using ansible-galaxy command to install a role, and by default, it installs roles in the system-wide location, typically in a directory like /etc/ansible/roles or ~/.ansible/roles.
    However, because I want to manage my roles within your project directory, which is a good practice when working with roles that are specific to my project.
   To have the role installed in my project directory, i specified the role path when installing the role by running;

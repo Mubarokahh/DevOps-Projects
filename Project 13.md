@@ -165,7 +165,13 @@ load_balancer_is_required: true`
 
 ## Error Encountered during the implementation of this project
 
-While trying to install the mysql in the `~/ansible-config-mgt/role`directory  using the community role `role ansible-galaxy install geerlingguy.mysql`. The role authomatically created a folder in the `~/ansible-config-mgt` directory as `roles'$'\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n''deprecation_warnings = False'`
+## Error Code
+
+While trying to install the mysql in the `~/ansible-config-mgt/role`directory  using the community role `role ansible-galaxy install geerlingguy.mysql`. The role authomatically created a folder in the `~/ansible-config-mgt` directory as
+
+## Error Execution
+
+ `roles'$'\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n''deprecation_warnings = False'`
 
 ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/591acf3d-60b5-48ae-b077-f290f73a7e47)
 
@@ -173,7 +179,8 @@ While trying to install the mysql in the `~/ansible-config-mgt/role`directory  u
    Because I was using ansible-galaxy command to install a role, and by default, it installs roles in the system-wide location, typically in a directory like /etc/ansible/roles or ~/.ansible/roles.
    However, because I want to manage my roles within your project directory, which is a good practice when working with roles that are specific to my project.
   To have the role installed in my project directory, i specified the role path when installing the role by running;
-  
+
+## Fix Code
   `sudo ansible-galaxy install geerlingguy.mysql -p ~/ansible-config-mgt/roles`
 
 

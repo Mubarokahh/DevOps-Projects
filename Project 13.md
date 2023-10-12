@@ -155,6 +155,17 @@ load_balancer_is_required: true`
 
 ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/f054a272-9756-41e1-bd3b-6c6c8537305f)
 
+* Using env-vars\uat.yml file to define which loadbalancer to use in UAT the environment by setting the respective environmental variable to true
+
+`enable_nginx_lb: true
+load_balancer_is_required: true
+
+## env-var/dev.yml file
+
+![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/c83f12f9-2c08-4072-925e-b0641a700d65)
+
+`
+
 
 
 

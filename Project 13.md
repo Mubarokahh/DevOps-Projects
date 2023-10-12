@@ -118,6 +118,42 @@ git push --set-upstream origin roles-feature
 * Declaring the following variable in the  defaults/main.yml file of both apache and nginx roles file which makes ansible to skip the roles during execution.
 
 
+* Declaring another variable in both roles `load_balancer_is_required` and set its value to `false` as well
+
+  ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/4d3aea93-a578-4e54-86fa-cacbd13f37cc)
+
+  ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/0a2d79a4-e773-4022-88af-05b824c79c82)
+
+* Updating both assignment and site.yml files respectively
+
+* Site.yml
+
+```
+ - name: Loadbalancers assignment
+       hosts: lb
+         - import_playbook: ../static-assignments/loadbalancers.yml
+        when: load_balancer_is_required 
+```
+
+![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/6cc7310e-ed78-427d-a556-e7426b69abe3)
+
+
+* Loadbalancers.yml
+
+```
+  - hosts: lb
+  roles:
+    - { role: nginx, when: enable_nginx_lb and load_balancer_is_required }
+    - { role: apache, when: enable_apache_lb and load_balancer_is_required }
+```
+![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/0f192656-53e4-40ea-b23b-6354ac5ea41a)
+
+* To define which load balancer to use, the files in the env-var folder is used to override the default settings of any of the load balancer roles. In this case the env-var/dev.yml file is used to make ansible to only run nginx load balancer task in the target server:
+
+`enable_nginx_lb: true
+load_balancer_is_required: true`
+
+![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/f054a272-9756-41e1-bd3b-6c6c8537305f)
 
 
 

@@ -169,7 +169,7 @@ While trying to install the mysql in the `~/ansible-config-mgt/role`directory  u
 
 ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/591acf3d-60b5-48ae-b077-f290f73a7e47)
 
-## Troubleshooting Process
+## Fix Execution
    Because I was using ansible-galaxy command to install a role, and by default, it installs roles in the system-wide location, typically in a directory like /etc/ansible/roles or ~/.ansible/roles.
    However, because I want to manage my roles within your project directory, which is a good practice when working with roles that are specific to my project.
   To have the role installed in my project directory, i specified the role path when installing the role by running;

@@ -155,6 +155,23 @@ load_balancer_is_required: true`
 
 ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/f054a272-9756-41e1-bd3b-6c6c8537305f)
 
+* Running the playbook 
+ ` ansible-playbook -i inventory/uat.yml playbooks/site.yml`
+![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/2d497560-6622-4d26-a34c-0f4c378713f3)
+![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/114db901-6b0b-4ade-98c7-572ab7feadfc)
+
+NOTE: In the above play,I activated loadbalancer and enabled nginx,Notice how it skips all apache2 plays, this is because nginx load balancer is activated.
+
+* The play below skips ngnix plays, this is beacause apache load balancer is activated.
+
+![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/276756e2-5722-4ef2-8a2d-a6d717747d56)
+
+
+
+
+
+
+
 
 `
 

@@ -8,15 +8,25 @@ I Spinned up an EC2 instance in AWS.I then open my mac terminal and ran the SSH 
 
 Below is the visual representation of how set up looks:
 
-https://user-images.githubusercontent.com/110112922/245434674-4f70859c-0d38-403b-bf27-ad1dde56a2e4.png![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/bc6a82b0-c2fb-47f3-a088-541e62fe552e)
+[image] https://user-images.githubusercontent.com/110112922/245434674-4f70859c-0d38-403b-bf27-ad1dde56a2e4.png!
+
+[image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/bc6a82b0-c2fb-47f3-a088-541e62fe552e)
 
 
 ## Step 2: Apache Installation & Firewall Update
 The EC2 instance was configured to be able to serve the web server which in this context is the Apache.For the installation of Apache,the following actions were taken in the environment:
     
-    1. Updating a list of packages in the package manager using `"sudo apt update"` command
-    2. Run apache2 package installation: $ sudo apt install apache2 
-    3. To verify that apache2 is running as a Service in my OS: `$ sudo systemctl status apache2`
+    1. Updating a list of packages in the package manager using 
+    
+    sudo apt update
+    2. Run apache2 package installation: 
+    
+    sudo apt install apache2
+    3. To verify that apache2 is running as a Service in my OS:
+    
+    sudo systemctl status apache2
+
+
 ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/b585decf-5295-4f2e-97cc-1b5fed263de8)
 The green highlighted and running light singifies that the web server has been launched in the cloud.Apache has been succefully installed.To access the web server in ubuntu, one of these command was used : curl http://localhost:80 or curl http://127.0.0.1:80
 To test how THE Apache HTTP server can respond to requests from the Internet. I used a web browser of choice and try to access following using my public IP address.
@@ -40,28 +50,32 @@ Alongside the PHP package, I also installed PHP-MySQL,a module that helps PHP to
 The LAMP stack was.installed and operational
 
 ## Step 5: Creating a Virtual Host Using Apache
-Cretion of vitual host was done in these outlimed process:
-     1.  Creation of the directory for projectlamp using ‘mkdir’ command as follows:`sudo mkdir /var/www/projectlamp`
+
+Creation of vitual host was done in these outlimed process:
+
+      * Creation of the directory for projectlamp using mkdir command as follows:sudo mkdir /var/www/projectlamp
      
-     2.  Assigning ownership of the directory with the current system user:` sudo chown -R $USER:$USER /var/www/projectlamp`
+      * Assigning ownership of the directory with the current system user: sudo chown -R $USER:$USER /var/www/projectlamp
      
-     3.  I created a new configuration file in Apache’s sites-available directory using your preferred command-line editor.I used Vi
+      * I created a new configuration file in Apache’s sites-available directory using your preferred command-line editor.I used Vi
      
-     4.  This generated a blank file.I pasted in the balck file by hitting 'i' to acess the imsert mode. Then I pasted:
+      * This generated a blank file.I pasted in the balck file by hitting i to acess the imsert mode. Then I pasted:
+      
+![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/39a49d59-6b7f-4444-ad6f-16050616e3f4)
      
-     ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/39a49d59-6b7f-4444-ad6f-16050616e3f4)
+     * Save and quit by hitting esc key and typing :wq and pressing enter key
      
-     5.  Save and quit by hitting esc key and typing :wq and pressing enter key
+     * Enabling the new virtual host: $ sudo a2ensite projectlamp
      
-     6.  Enabling the new virtual host: $ `sudo a2ensite projectlamp`
+     * Disabling the default website that comes installed with Apache: sudo a2dissite 000-default
      
-     7.  Disabling the default website that comes installed with Apache: $ `sudo a2dissite 000-default`
+     * Ensuring my configuration doesn’t contain any error: sudo apache2ctl configtest
      
-     8.  Ensuring my configuration doesn’t contain any error: $ `sudo apache2ctl configtest`
+     * Reloading Apache so these changes take effect:  sudo systemctl reload apache2
      
-     9.  Reloading Apache so these changes take effect: $ sudo systemctl reload apache2
+     * Created an index.html file in the location of my domain directory inorder to test that the virtual host works as expected : 
      
-     1o. Created an index.html file in the location of my domain directory inorder to test that the virtual host works as expected : $ ``sudo echo 'Hello Mubarokah,keep soaring  hostname' $(curl -s http://169.254.169.254/latest/meta-data/public-hostname) 'with public IP' $(curl -s http://169.254.169.254/latest/meta-data/public-ipv4) > `/var/www/projectlamp/i`ndex.htm
+     ``sudo echo 'Hello Mubarokah,keep soaring  hostname' $(curl -s http://169.254.169.254/latest/meta-data/public-hostname) 'with public IP' $(curl -s http://169.254.169.254/latest/meta-data/public-ipv4) > `/var/www/projectlamp/i`ndex.htm
 ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/6600e4b0-ce09-4db0-9800-a76d1e5c0b5b)
 I refreshed the website to see of it worked..
 ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/83bfd3f2-ea73-4bd0-9b79-7d064183b50d)
@@ -75,11 +89,8 @@ I created a PHP test script to confirm that Apache is able to handle and process
 
 I generated a new file named index.php inside your custom web root folder: `vim /var/www/projectlamp/index.php`. This openned a blank page,and the following text which is valid PHP code inside the file:` <?php phpinfo();`
 ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/2ff78233-7111-4f0e-b298-639ebcb3eeab)
-At the end of this project, i removed the php file as it contains sensitive information about your PHP environment and my Ubuntu `server:sudo rm /var/www/projectlamp/index.php
-`
+At the end of this project, i removed the php file as it contains sensitive information about your PHP environment and my Ubuntu `server:sudo rm /var/www/projectlamp/index.php`
 
-
-    ``
 
 
 

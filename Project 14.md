@@ -17,5 +17,10 @@ The CI/CD concept is applied in this project by pushing a PHP application from G
 
  ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/c6e7df7e-ac73-49fc-9c1b-1c29274556ab)
 
+* Install Epel,Remi Repo Release and Java
+
+  ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/6188fceb-c41f-457f-a1fd-d4a446155ee0)
+
+
 
 

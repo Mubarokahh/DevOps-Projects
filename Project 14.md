@@ -21,6 +21,45 @@ The CI/CD concept is applied in this project by pushing a PHP application from G
 
   ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/6188fceb-c41f-457f-a1fd-d4a446155ee0)
 
+* Jenkins is Ready
+
+  ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/f9871961-54f6-49fa-8814-575cfa4201d2)
+
+* Configuring Jenkins-Ansible serverfor jenkins deployment
+
+ I have been launching Ansible commands manually from a CLI in previous project, in this project i will be runnig ansible commands from the jenkins UI. To achive this, the following steps will be taken:
+
+* Navigate to jenkins URL
+* Install Blue Ocean plugin from manage plugins on Jenkins:
+    
+  ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/452a16a2-e90c-48d5-b9c0-1c1390430ac5)
+  
+* Creating new pipeline job on the Blue Ocean UI from Github
+
+![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/e0437149-2b69-42af-89fc-29b3630e9fb4)
+
+![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/65ac6dc6-3c04-4919-a15d-75576154dac9)
+
+![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/1a70a28d-11f4-4802-8682-979951dd4a48)
+
+NOTE: At this point, their is no jenkins file present in the ansible repository.Although,Blue Ocean will attempt to give you some guidance to create one but this will be disregarded.I will create the jenkinsfile.
+
+This is the newly created pipeline.The piprline takes the name of the github repository.
+![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/69c23759-6e86-45cf-bf6c-e1a60612a34a)
+
+* Creating a jenkinsfile
+  Going back to the ansible project, i will create a new directory deploy and start a new file Jenkinsfile inside the directory.
+
+  ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/054d1ac4-800d-4399-a1e5-b900c71ef96b)
+
+
+
+
+
+
+
+
+
 
 
 

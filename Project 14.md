@@ -69,6 +69,9 @@ This is the newly created pipeline.The piprline takes the name of the github rep
 }
 ```
 
+![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/b4fc28ba-5e53-408f-90ff-94de3ab98b99)
+
+
 
 
 

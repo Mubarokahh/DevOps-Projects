@@ -113,6 +113,24 @@ NOTE: This pipeline is a multibranch one. This means, if there were more than on
 NOTE: Creating Jenkinsfile from scratch. (Delete all you currently have in there and start all over to get Ansible to run successfully)
 
 * For ansible to be able to locate the roles in my playbook, the ansible.cfg is copied to '/deploy' folder and then exported from the Jenkinsfile code
+* Using the jenkins pipeline syntax Ansible tool to generate syntax for executing playbook which runs with tags 'webserver'.
+
+  ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/e0031a88-c9b2-4885-8e60-52e86cf8f0f6)
+
+  ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/1ea9e56c-0bd3-4cec-96c0-20e164fbafae)
+
+* Jenkinsfile code for ansible-config-mgt job
+
+ ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/83b37d6a-5140-4774-af1a-129c08cfc8d3)
+
+
+
+
+
+ 
+
+
+
 
 
 

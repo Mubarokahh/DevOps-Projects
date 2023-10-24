@@ -103,6 +103,11 @@ NOTE: This pipeline is a multibranch one. This means, if there were more than on
 * The oustcome
 ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/cafebeba-71a4-4caa-a683-657f25703322)
 
+## Running Ansible Playbook from jenkins
+
+* Installed ansible.
+* 
+
 
 
 

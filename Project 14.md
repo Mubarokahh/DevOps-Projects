@@ -112,6 +112,8 @@ NOTE: This pipeline is a multibranch one. This means, if there were more than on
 
 NOTE: Creating Jenkinsfile from scratch. (Delete all you currently have in there and start all over to get Ansible to run successfully)
 
+* For ansible to be able to locate the roles in my playbook, the ansible.cfg is copied to '/deploy' folder and then exported from the Jenkinsfile code
+
 
 
 

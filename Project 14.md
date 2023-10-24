@@ -100,6 +100,10 @@ NOTE: This pipeline is a multibranch one. This means, if there were more than on
 
   ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/27779484-fbc3-40e2-86e7-c9bb89db465a)
 
+* The oustcome
+![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/cafebeba-71a4-4caa-a683-657f25703322)
+
+
 
 
 

@@ -90,29 +90,16 @@ This is the newly created pipeline.The piprline takes the name of the github rep
 NOTE: This pipeline is a multibranch one. This means, if there were more than one branch in GitHub, Jenkins would have scanned the repository to discover them all and we would have been able to trigger a build for each branch.
 
 * Creating new branch to test this. Adding test stage to the build stage
-```
-     pipeline {
-    agent any
+1
+![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/b78f9cc4-ee0b-4eec-994b-3f2767a7f724)
 
-  stages {
-    stage('Build') {
-      steps {
-        script {
-          sh 'echo "Building Stage"'
-        }
-      }
-    }
 
-    stage('Test') {
-      steps {
-        script {
-          sh 'echo "Testing Stage"'
-        }
-      }
-    }
-    }
-}
-```
+
+![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/fe2a9457-b699-429e-b338-5d19b05e3b66)
+
+
+
+
 
 
 

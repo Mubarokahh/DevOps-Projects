@@ -96,6 +96,11 @@ NOTE: This pipeline is a multibranch one. This means, if there were more than on
 
 ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/fe2a9457-b699-429e-b338-5d19b05e3b66)
 
+* Adding packaging.deploting and cleaning up stage to the jenkinsfile
+
+  ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/27779484-fbc3-40e2-86e7-c9bb89db465a)
+
+
 
 
 

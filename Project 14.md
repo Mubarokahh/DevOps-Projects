@@ -106,7 +106,12 @@ NOTE: This pipeline is a multibranch one. This means, if there were more than on
 ## Running Ansible Playbook from jenkins
 
 * Installed ansible.
-* 
+* Installing Ansible plugin in Jenkins UI to run ansible commands
+  
+  ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/ca5bae59-21c6-49c6-ab7c-c6da43da059b)
+
+NOTE: Creating Jenkinsfile from scratch. (Delete all you currently have in there and start all over to get Ansible to run successfully)
+
 
 
 

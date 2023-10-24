@@ -125,8 +125,12 @@ NOTE: Creating Jenkinsfile from scratch. (Delete all you currently have in there
 
  ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/b2fdc674-859b-4923-b8d3-10d4317e3c51)
 
-
+* Output on the two branches
+  
  ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/0e961859-fa4a-43ca-aa50-8dd7e2f25b70)
+
+ ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/139fe16e-ad83-4948-bbe9-6d3a2e8e87ed)
+
  
 
 

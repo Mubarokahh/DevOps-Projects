@@ -71,6 +71,55 @@ This is the newly created pipeline.The piprline takes the name of the github rep
 
 ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/b4fc28ba-5e53-408f-90ff-94de3ab98b99)
 
+* Committing the changes and heading over to the Jenkins console
+
+![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/879bdacd-cf21-4f19-824d-ef4518d4f372)
+
+![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/9f870889-df7b-4561-ad5c-3cc127d6df91)
+
+* Click on Configure and toogle to build configuration to set the location of the Jenkinsfile.
+
+  ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/c81331df-cfee-4fb4-a8be-f4e64735ba0c)
+
+* Clicking on Build now to trigger the build
+
+![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/014b3b9c-358b-4c11-8292-615f603a4e60)
+
+![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/f2e85701-c902-4613-862f-8533e578482e)
+
+NOTE: This pipeline is a multibranch one. This means, if there were more than one branch in GitHub, Jenkins would have scanned the repository to discover them all and we would have been able to trigger a build for each branch.
+
+* Creating new branch to test this. Adding test stage to the build stage
+```
+     pipeline {
+    agent any
+
+  stages {
+    stage('Build') {
+      steps {
+        script {
+          sh 'echo "Building Stage"'
+        }
+      }
+    }
+
+    stage('Test') {
+      steps {
+        script {
+          sh 'echo "Testing Stage"'
+        }
+      }
+    }
+    }
+}
+```
+
+
+
+
+
+  
+
 
 
 

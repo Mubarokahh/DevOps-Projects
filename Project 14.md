@@ -127,7 +127,8 @@ NOTE: Creating Jenkinsfile from scratch. (Delete all you currently have in there
 
 * sucess in the blue ocean pipeline on both branches
   
- ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/0e961859-fa4a-43ca-aa50-8dd7e2f25b70)
+ ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/ab4182a1-2f90-4745-b0ac-a51bf59e2500)
+
 
  ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/139fe16e-ad83-4948-bbe9-6d3a2e8e87ed)
 

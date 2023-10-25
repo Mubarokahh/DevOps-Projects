@@ -186,6 +186,11 @@ ansible_python_interpreter=/usr/bin/python
 
 * Integrate Artifactory repository with Jenkins
 
+  ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/1e34699a-c5c2-47fb-b0a2-8a245bbce7a1)
+
+* Integrate artifactory repository with jenkins
+
+
 
 
 

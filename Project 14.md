@@ -132,6 +132,68 @@ NOTE: Creating Jenkinsfile from scratch. (Delete all you currently have in there
 
  ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/139fe16e-ad83-4948-bbe9-6d3a2e8e87ed)
 
+ ## Parameterizing Jenkinsfile For Ansible Deployment
+
+* Below is the paramter for the the previous pipeline
+
+    `parameters {
+      string(name: 'inventory', defaultValue: 'dev.yml',  description: 'This is the inventory file for the environment to deploy configuration')
+    }`
+![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/0766d379-ac75-4eec-88d9-a38c12dcffde)
+
+* Updating the prameter to "sit.yml"
+  The sit.yml file will contain the following.
+
+
+```
+  [tooling]
+<SIT-Tooling-Web-Server-Private-IP-Address>
+
+[todo]
+<SIT-Todo-Web-Server-Private-IP-Address>
+
+[nginx]
+<SIT-Nginx-Private-IP-Address>
+
+[db:vars]
+ansible_user=ec2-user
+ansible_python_interpreter=/usr/bin/python
+
+[db]
+<SIT-DB-Server-Private-IP-Address>
+
+```
+
+## CI/CD PIPELINE FOR TODO APPLICATION
+
+* The goal here is to deploy the application onto servers directly from Artifactory rather than from git.
+* Install Jenkins plugins
+  1. Plot plugin
+  2. Artifactory plugin
+ * The plot plugin is used to display tests reports, and code coverage information.
+ * The Artifactory plugin is used to easily upload code artifacts into an Artifactory server.
+
+* Congiguring artifactory in jenkins ui
+
+* Setting up artifactory server
+
+   ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/ae866d46-e50f-421f-9618-18fa3c522a39)
+
+
+   ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/f8367d67-ae5a-422a-9b91-3942f3857b9a)
+
+   ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/7da3fc22-37f9-415d-a7ed-a11a7cd89182)
+
+* Integrate Artifactory repository with Jenkins
+
+
+
+
+
+  
+
+
+
  
 
 

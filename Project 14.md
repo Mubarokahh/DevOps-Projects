@@ -207,6 +207,11 @@ ansible_python_interpreter=/usr/bin/python
 
    ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/032ae5b7-b42e-467b-abdb-5b791285934a)
 
+ * After a successful run of the pipeline job, confirming on the database server by running SHOW TABLES command to see the tables being created
+
+   ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/f0801b0d-99df-4c21-a2cd-068926538075)
+
+
 
 
 

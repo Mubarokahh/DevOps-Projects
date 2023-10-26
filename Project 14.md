@@ -193,6 +193,24 @@ ansible_python_interpreter=/usr/bin/python
  * Creating a dummy Jenkinsfile in the repository
 
 
+ * Creating database and user. NOTE: The task of setting the database is done by the MySQL ansible role
+
+   ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/e2c287e5-058d-434a-993b-529b26541b3e)
+
+ *  Creating Jenkinsfile for the php-todo repository on the main branch
+
+   ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/b77e9317-a216-47dd-8a75-6bf2cfaa6dbd)
+
+
+ *  Creating php-todo pipeline job from the Blue Ocean UI
+   
+
+   ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/032ae5b7-b42e-467b-abdb-5b791285934a)
+
+
+
+
+
 
 
 

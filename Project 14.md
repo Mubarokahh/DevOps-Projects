@@ -291,8 +291,20 @@ ansible_python_interpreter=/usr/bin/python
 
   * Deploying the application to the dev environment by launching Ansible pipeline job(ansible-config-mgt)
 
+```
+    stage ('Deploy to Dev Environment') {
+    steps {
+    build job: 'ansible-config-mgt/main', parameters: [[$class: 'StringParameterValue', name: 'env', value: 'dev']], propagate: false, wait: true
+    }
+  }
+```
+
+![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/6bbdfea4-7b87-4d7a-938c-cd352da7a2fa)
+
+
 ## Setting Up The SonarQube Server
 
+SonarQube server is set up and configured in this way to guarantee that only code meeting the necessary code coverage requirements and other quality standards reaches the development environment. In this project predefined Quality Gates (also known as The Sonar Way) will be used
 
 
 

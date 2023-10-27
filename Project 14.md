@@ -257,8 +257,8 @@ ansible_python_interpreter=/usr/bin/python
 
 * Adding the package artifacts stage which archives the application code
 
-  ```
-     stage('Package Artifact') {
+```
+    stage('Package Artifact') {
       steps {
             sh 'zip -qr php-todo.zip ${WORKSPACE}/*'
       }
@@ -286,7 +286,8 @@ ansible_python_interpreter=/usr/bin/python
                  server.upload spec: uploadSpec
                }
             }
-    ```
+```
+  ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/6463df72-de2e-4cd6-a5e4-c91efba1c2ef)
 
 
 

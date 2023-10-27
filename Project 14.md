@@ -289,6 +289,12 @@ ansible_python_interpreter=/usr/bin/python
 ```
   ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/6463df72-de2e-4cd6-a5e4-c91efba1c2ef)
 
+  * Deploying the application to the dev environment by launching Ansible pipeline job(ansible-config-mgt)
+
+## Setting Up The SonarQube Server
+
+
+
 
 
   

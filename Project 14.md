@@ -253,6 +253,9 @@ ansible_python_interpreter=/usr/bin/python
       }
     }
 ```
+![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/3e8c75ac-5149-42c1-a160-caa1e15ed026)
+
+
 
   
 

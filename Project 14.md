@@ -211,7 +211,32 @@ ansible_python_interpreter=/usr/bin/python
 
    ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/f0801b0d-99df-4c21-a2cd-068926538075)
 
+## Structuring Jenkins file
+* Including unit test stage in the Jenkinsfile
 
+  ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/c36468a8-328f-4813-aac5-1f4408997ea4)
+
+## Code Quality Analysis
+
+* Adding Code Quality stage with phploc tool and will save the output in build/logs/phploc.csv
+
+ ``` 
+ stage('Code Analysis') {
+  steps {
+        sh 'phploc app/ --log-csv build/logs/phploc.csv'
+
+  }
+}
+```
+
+![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/558c5fc0-6aba-4e73-8cb1-5dc106ab9a9e)
+
+
+  
+
+* Adding the plot code coverage report stage in the Jenkins file
+
+  
 
 
 
@@ -247,6 +272,8 @@ ansible_python_interpreter=/usr/bin/python
 
 
 ## Error Code
+
+* Whilst running the pipeline, the 
 
 ## Error Execution
 

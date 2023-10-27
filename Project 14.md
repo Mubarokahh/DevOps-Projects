@@ -255,6 +255,39 @@ ansible_python_interpreter=/usr/bin/python
 ```
 ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/3e8c75ac-5149-42c1-a160-caa1e15ed026)
 
+* Adding the package artifacts stage which archives the application code
+
+  ```
+     stage('Package Artifact') {
+      steps {
+            sh 'zip -qr php-todo.zip ${WORKSPACE}/*'
+      }
+    }
+  ```
+* Uploading the artifacts to the Artifactory repository in this stage:
+
+```
+ }
+    stage ('Upload Artifact to Artifactory') {
+          steps {
+            script { 
+                 def server = Artifactory.server 'artifactory-server'                 
+                 def uploadSpec = """{
+                    "files": [
+                      {
+                       "pattern": "php-todo.zip",
+                       "target": "wurapbl/php-todo",
+                       "props": "type=zip;status=ready"
+
+                       }
+                    ]
+                 }""" 
+
+                 server.upload spec: uploadSpec
+               }
+            }
+    ```
+
 
 
   

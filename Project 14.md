@@ -304,7 +304,31 @@ ansible_python_interpreter=/usr/bin/python
 
 ## Setting Up The SonarQube Server
 
-SonarQube server is set up and configured in this way to guarantee that only code meeting the necessary code coverage requirements and other quality standards reaches the development environment. In this project predefined Quality Gates (also known as The Sonar Way) will be used
+SonarQube server is set up and configured in this way to guarantee that only code meeting the necessary code coverage requirements and other quality standards reaches the development environment. In this project predefined Quality Gates (also known as The Sonar Way) will be used.
+
+* On the Ansible config management pipeline, execute the ansible playbook script to install sonarqube via a preconfigured sonarqube ansible role.
+
+  ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/5dd6227b-54da-4b52-acef-3c200ff3e7e5)
+
+  ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/b801d7c4-45ad-4c4f-a355-c63297cb58ab)
+
+  ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/36911e0a-7ee3-4af8-8113-9240c50bbea9)
+
+## Configuring Jenkins For SonarQube Quality Gate
+
+
+
+* Installing SonarScanner plugin in jenkins:
+
+
+![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/57d8e387-76a3-44c5-b63a-f1b89cfb8bbf)
+
+
+![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/6683ff8f-a0be-44e8-b942-c58d4c48610b)
+
+
+
+
 
 
 

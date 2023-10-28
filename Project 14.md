@@ -326,6 +326,37 @@ SonarQube server is set up and configured in this way to guarantee that only cod
 
 ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/6683ff8f-a0be-44e8-b942-c58d4c48610b)
 
+* Updating the Jenkinsfile to include SonarQube Scanning and Quality Gate:
+
+```  
+stage('SonarQube Quality Gate') {
+      environment {
+          scannerHome = tool 'SonarQubeScanner'
+      }
+        steps {
+          withSonarQubeEnv('sonarqube') {
+              sh "${scannerHome}/bin/sonar-scanner"
+          }
+
+        }
+    }
+    
+```
+![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/c62b6073-7df3-4ce1-ac84-776e07e14029)
+
+![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/d98ecd19-47c5-435a-96a1-5c28b51999d1)
+
+## NOTE
+ * The above error was encountered because`sonar-scanner.properties has not been updated
+
+ * End-to-End Pipeline Overview
+
+   ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/0c2b5427-1185-4522-8472-7916d9943b06)
+
+* Output from Sonarqube
+
+  ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/7bb9428a-0b78-4b55-9357-e4d126bb2b9f)
+
 
 
 

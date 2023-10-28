@@ -359,6 +359,22 @@ stage('SonarQube Quality Gate') {
 
  *  The outcome reveals that the code has defects, 0.0% code coverage (code coverage is the percentage of unit tests applied by developers to test functions and objects in the code), six hours' worth of technical debt, code smells, and security vulnerabilities. As DevOps Engineers working on the pipeline, it is our responsibility to make sure that the quality gate step causes the pipeline to fail in the event that the quality requirements are not satisfied.
 
+ *  Update Jenkins Pipeline to include SonarQube scanning and Quality Gate. Making sure to place it before the "package artifact stage" Below is the snippet for a Quality Gate stage in Jenkinsfile.
+
+```
+stage('SonarQube Quality Gate') {
+    environment {
+        scannerHome = tool 'SonarQubeScanner'
+    }
+    steps {
+        withSonarQubeEnv('sonarqube') {
+            sh "${scannerHome}/bin/sonar-scanner"
+        }
+
+    }
+}
+```
+
  *  The complete jenkins code
    
 ```

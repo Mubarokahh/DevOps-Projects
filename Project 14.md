@@ -319,9 +319,25 @@ SonarQube server is set up and configured in this way to guarantee that only cod
 
 ```
    sonarqube   -   nofile   65536
-   sonarqube   -   nproc    4096      
+   sonarqube   -   nproc    4096
 ```
 
+![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/eca5f18e-b60a-41b4-881b-9832a9015f68)
+
+* Updating and upgrading the server:
+  
+  ```
+  sudo apt update
+  sudo apt upgrade
+  
+  ```
+* Install OpenJDK and Java Runtime Environment (JRE) 11
+
+  ```
+  sudo apt-get install openjdk-11-jdk -y
+  sudo apt-get install openjdk-11-jre -y
+  
+  ```
 
 
 

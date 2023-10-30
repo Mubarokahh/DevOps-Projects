@@ -306,14 +306,21 @@ ansible_python_interpreter=/usr/bin/python
 
 SonarQube server is set up and configured in this way to guarantee that only code meeting the necessary code coverage requirements and other quality standards reaches the development environment. In this project predefined Quality Gates (also known as The Sonar Way) will be used.
 
-* On the Ansible config management pipeline, execute the ansible playbook script to install sonarqube via a preconfigured sonarqube ansible role.
+* On the SonarQube server, performing the following command on the terminal which makes the session changes persist beyond the current session terminal to ensure optimal performance of the tool
+  
+```
+ sudo sysctl -w vm.max_map_count=262144
+ sudo sysctl -w fs.file-max=65536
+ ulimit -n 65536
+ ulimit -u 4096
 
- 
- 
-         
-       
+```      
+ * To make a permanent change, edit the file /etc/security/limits.conf and append the below
 
-
+```
+   sonarqube   -   nofile   65536
+   sonarqube   -   nproc    4096      
+```
 
 
 

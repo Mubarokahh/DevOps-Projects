@@ -338,6 +338,64 @@ SonarQube server is set up and configured in this way to guarantee that only cod
   sudo apt-get install openjdk-11-jre -y
   
   ```
+  * Verifying the java version that is in use
+  
+     `java --version`
+    
+   ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/b2871de5-3f56-4caf-b57b-b3c14cd683cb)
+
+* To install postgresql database, adding the postgresql repo to the repo list
+
+  `sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`-pgdg main" >> /etc/apt/sources.list.d/pgdg.list'`
+
+* Downloading Postgresql software key:
+
+  `wget -q https://www.postgresql.org/media/keys/ACCC4CF8.asc -O - | sudo apt-key add -`
+
+* Installing postgresql database server:
+
+   `sudo apt-get -y install postgresql postgresql-contrib`
+
+* Starting postgresql server:
+
+  `sudo systemctl start postgresql`
+  
+* Enabling it to start automatically:
+
+  `sudo systemctl enable postgresql`
+  
+  ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/9211aaec-710c-4c67-a54c-cac525032be8)
+
+
+* Changing the password for the default postgres user:
+
+`sudo passwd postgres`
+
+* Switching to the postgres user:
+  
+  ` su – postgres`
+  
+* Creating a new user ‘sonar’:
+  
+ ` createuser sonar`
+ 
+* Activating postgresql shell:
+  
+  `psql`
+  
+* Setting password for the newly created user for the SonarQube databases:
+  
+ `ALTER USER sonar WITH ENCRYPTED password 'sonar';`
+ 
+* Creating a new database for Postgresql database:
+
+  `CREATE DATABASE sonarqube OWNER sonar;`
+  
+* Granting all privileges to the user sonar on sonarqube database:
+
+   `grant all privileges on DATABASE sonarqube to sonar;`
+  
+* Exiting from the shell
 
 
 

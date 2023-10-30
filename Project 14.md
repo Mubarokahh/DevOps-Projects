@@ -397,6 +397,140 @@ SonarQube server is set up and configured in this way to guarantee that only cod
   
 * Exiting from the shell
 
+  ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/0fa617ff-bbed-470b-a935-982c00b35c00)
+
+* To install SonarQube software, navigating to the '/tmp' folder to temporarily download the installation files:
+
+ ` cd /tmp && sudo wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-7.9.3.zip`
+
+ * Unzip the archive setup to /opt directory
+
+`sudo unzip sonarqube-7.9.3.zip -d /opt`
+
+ * Move extracted setup to /opt/sonarqube directory
+
+ `sudo mv /opt/sonarqube-7.9.3 /opt/sonarqube`
+
+ ## NOTE
+  Sonarqube cannot be run as a root user, if it is being run has a root user, it will authomatically stop.The ideal approach will be to create a separate group and a user to run SonarQube
+
+ * Creating a group sonar
+
+  `sudo groupadd sonar`
+
+ * Adding a user with control over the /opt/sonarqube directory
+
+ `sudo useradd -c "user to run SonarQube" -d /opt/sonarqube -g sonar sonar 
+ sudo chown sonar:sonar /opt/sonarqube -R`
+ 
+  * Editing SonarQube configuration file
+    
+  `sudo vim /opt/sonarqube/conf/sonar.properties`
+  
+* Uncomment the following lines  and provide the values of PostgreSQL Database username and password:
+
+
+#sonar.jdbc.username=
+#sonar.jdbc.password=
+
+* Editing the sonar script file and set RUN_AS_USER:
+
+   `sudo nano /opt/sonarqube/bin/linux-x86-64/sonar.sh`
+
+  ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/a27c1a38-0416-4c9f-986d-1d321ed03c55)
+
+## Starting Sonarqube
+
+* Switch to sonar user
+
+`sudo su sonar`
+
+* Move to the script directory
+
+`cd /opt/sonarqube/bin/linux-x86-64/`
+
+* Running the script to start SonarQube
+
+`./sonar.sh start`
+
+* Checking SonarQube running status:
+
+./sonar.sh status
+
+![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/3f3a9dc1-4ece-4937-8dde-16818082293b)
+
+
+* To check SonarQube logs:
+
+   `tail /opt/sonarqube/logs/sonar.log`
+
+*To Configure SonarQube as a service, the SonarQube server is stopped first:
+
+`cd /opt/sonarqube/bin/linux-x86-64/`
+
+* Stopping the server:
+
+  `./sonar.sh stop`
+
+## Configure SonarQube to run as a systemd service
+
+* Stop the currently running SonarQube service
+
+ `cd /opt/sonarqube/bin/linux-x86-64/`
+ 
+* Run the script to start SonarQube
+
+`./sonar.sh stop`
+
+* Create a systemd service file for SonarQube to run as System Startup.
+
+ `sudo nano /etc/systemd/system/sonar.service`
+
+ ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/9237001d-2869-497f-8cde-071517f8e66b)
+
+* Starting the SonarQube service and enabling it:
+  
+ `sudo systemctl start sonar`
+
+ `sudo systemctl enable sonar`
+
+ `sudo systemctl status sonar`
+
+ * Opening TCP port 9000 on the security group
+
+ * Accessing SonarQube through the browser by entering the SonarQube server’s IP address followed by port 9000: http://<server's_IP_adress>:9000
+
+## Configure Sonarqube And Jenkins For Quality Gate
+
+* Generating authentication token in SonarQube server by navigating from 'My Account' to 'security':
+
+
+
+
+* Configuring Quality Gate Jenkins Webhook in SonarQube by navigating from 'Administration' to 'Configuration' to 'webhook' and 'create' and then specifying the URL as this: http://<Jenkins ip address>/sonarqube-webhook/
+
+* Installing SonarScanner plugin in jenkins
+
+  ![image](https://github.com/Mubarokahh/DevOps-Projects/assets/135038657/9f63c572-d282-44cf-9e45-f91b5a6e63b7)
+  
+* Navigating to 'Configure System' in Jenkins to add SonarQube server details with the generated token
+
+* Setting the SonarQube scanner by navigating from 'manage jenkins' to 'Global Tool Configuration'
+
+* Configuring the sonar-scanner.properties file in which SonarQube will require to function during pipeline execution:
+
+  `cd /var/lib/jenkins/tools/hudson.plugins.sonar.SonarRunnerInstallation/SonarQubeScanner/conf/`
+  
+* Editing and entering the following configuration: $ sudo vi sonar-scanner.properties
+
+
+
+
+
+
+
+
+
 
 
 

@@ -18,7 +18,7 @@ The EC2 instance was configured to be able to serve the web server which in this
     
     1. Updating a list of packages in the package manager using 
     
-    sudo apt update
+    sudo apt update.
     2. Run apache2 package installation: 
     
     sudo apt install apache2

@@ -1,5 +1,5 @@
 
-# Project 1: LAMP Stack Implementation in AWS
+# P: LAMP Stack Implementation in AWS
 Lamp stack is a software bundle used for web development.It comprises of different technologies that can be used to create a web solution. Lamp stack invoves setting up the folloeing technologies (Linux+Apache+MySQL+PHP/Perl/Python). In this project,I will configure a fully funcional development environment on linux.
 
 ## Step 1: Launching and Connecting to EC2 instance in AWS Cloud

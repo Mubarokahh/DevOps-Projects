@@ -22,7 +22,7 @@ Let us take a look at the updated solution architecture with an LB added on top 
 
 In this project we will enhance our Tooling Website solution by adding a Load Balancer to disctribute traffic between Web Servers and allow users to access our website using a single URL.
 
-## Configure Apache As A Load Balancer
+## Configure Apache As A Load Balancer.
 
 * Create an Ubuntu Server 20.04 EC2 instance and name it Project-8-apache-lb, so your EC2 list will look like this
 

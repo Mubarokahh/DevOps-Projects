@@ -1,9 +1,7 @@
 # ANSIBLE DYNAMIC ASSIGNMENTS (INCLUDE) AND COMMUNITY ROLES
 
 ## Introduction 
-  This project is a continuation of project 12.
-  
-  In project 12, static assignment was explored using "imports" module. This project will be centered around dynamic assignments which uses "Include" module
+static assignment was explored using "imports" module. This project will be centered around dynamic assignments which uses "Include" module
   
 ##  Introducing dynamic assignments into the existing structure
 * Creating a new folder in the https://github.com/Mubarokahh/ansible-config-mgt.git called 'DYNAMIC-ASSIGNMENTS'
